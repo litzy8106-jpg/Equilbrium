@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ionic Equilibria Lab</title>
-<meta name="description" content="Interactive CHEM 18 review of ionic equilibria built from the course handout: acid–base definitions, pH, weak acids and bases, salts, common-ion effect, buffers, titrations, solubility and complex ions, with simulators, ten figures, a solving-strategy guide, the problem set with multi-part checking, past quiz items, a 190-item quiz and an unlimited problem drill.">
+<meta name="description" content="Interactive CHEM 18 review of ionic equilibria built from the course handout: acid–base definitions, pH, weak acids and bases, salts, common-ion effect, buffers, titrations, solubility and complex ions, with simulators, ten figures, 16 lessons with molecular "Picture it" scenes, a solving-strategy guide, the problem set with multi-part checking, past quiz items, a 219-item quiz and an unlimited problem drill.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -111,13 +111,23 @@ ul.tight,ol.tight{margin:0;padding-left:1.25em;display:flex;flex-direction:colum
 .wh > .k{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);padding-top:4px}
 .wh > .v{display:flex;flex-direction:column;gap:12px;min-width:0}
 .why{background:var(--accent-soft);border-radius:10px;padding:14px 16px}
+.pic{background:var(--sunk);border-left:3px solid var(--ph14);border-radius:0 10px 10px 0;padding:14px 16px}
+.pic-lead{font-style:italic;color:var(--muted);margin:0}
+ol.film{list-style:none;counter-reset:fr;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+ol.film>li{counter-increment:fr;position:relative;padding-left:40px}
+ol.film>li::before{content:counter(fr);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--ph14);color:var(--bg);font-family:var(--ui);font-size:13px;font-weight:700;display:grid;place-items:center}
+ol.qa{list-style:none;counter-reset:qg;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+ol.qa>li{counter-increment:qg;border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg);position:relative}
+ol.qa>li+li{margin-top:22px}
+ol.qa>li+li::before{content:'↓ remaining solution';position:absolute;top:-21px;left:18px;font-family:var(--ui);font-size:12px;color:var(--muted)}
+ol.qa>li>span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
 .note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:10px 14px;border-radius:0 8px 8px 0;font-size:15.5px}
 .ph{border-left:3px solid var(--good);background:var(--good-soft);padding:10px 14px;border-radius:0 8px 8px 0;font-size:15.5px}
 .note b,.ph b{font-family:var(--ui);font-size:12px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:2px}
 .worked{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
-.worked > summary{cursor:pointer;padding:12px 16px;font-family:var(--ui);font-weight:600;font-size:15px;list-style:none;display:flex;gap:10px;align-items:center}
+.worked > summary{cursor:pointer;padding:12px 16px 12px 46px;font-family:var(--ui);font-weight:600;font-size:15px;line-height:1.45;list-style:none;display:block;position:relative}
 .worked > summary::-webkit-details-marker{display:none}
-.worked > summary::before{content:"+";font-family:var(--mono);width:20px;height:20px;border:1px solid var(--line);border-radius:5px;display:grid;place-items:center;flex:none}
+.worked > summary::before{content:"+";font-family:var(--mono);width:20px;height:20px;border:1px solid var(--line);border-radius:5px;display:grid;place-items:center;position:absolute;left:16px;top:12px}
 .worked[open] > summary::before{content:"−"}
 .worked > div{padding:4px 16px 16px;display:flex;flex-direction:column;gap:10px;font-size:16px}
 .check{display:flex;flex-direction:column;gap:8px}
@@ -278,7 +288,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <a href="#remember" data-view="remember">Remember</a>
       <a href="#visualize" data-view="visualize">Visualize</a>
       <a href="#past" data-view="past">Problems</a>
-      <a href="#quiz" data-view="quiz">Quiz · 190</a>
+      <a href="#quiz" data-view="quiz">Quiz · 219</a>
       <a href="#drill" data-view="drill">Drill ∞</a>
     </nav>
     <button class="theme" id="themeBtn" type="button" aria-label="Switch color theme">Theme: auto</button>
@@ -345,15 +355,40 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
     </div>
   </section>
 
+  <section class="flow" aria-labelledby="h-jove">
+    <h2 id="h-jove">Your JoVE playlist, topic by topic</h2>
+    <p style="max-width:68ch">Each video in the JoVE Core Chemistry "Acid-base and Solubility Equilibria" playlist and where to study it here.</p>
+    <div class="tbl"><table>
+      <thead><tr><th scope="col">JoVE video</th><th scope="col">On this site</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Acid-base and Solubility Equilibria</th><td><a href="#h-cmap">Topic map</a></td></tr>
+        <tr><th scope="row">Common Ion Effect</th><td><a href="#d-common">Lesson 8 · figure 4</a></td></tr>
+        <tr><th scope="row">Buffers</th><td><a href="#d-buffer">Lesson 9</a></td></tr>
+        <tr><th scope="row">Henderson–Hasselbalch Equation</th><td><a href="#d-buffer">Lesson 9 · drill</a></td></tr>
+        <tr><th scope="row">Calculating pH Changes in a Buffer Solution</th><td><a href="#d-buffer">Lesson 9 · figure 3</a></td></tr>
+        <tr><th scope="row">Buffer Effectiveness</th><td><a href="#b-eff">Lesson 9 · figure 8</a></td></tr>
+        <tr><th scope="row">Titration Calculations: Strong Acid–Strong Base</th><td><a href="#d-titr">Lesson 11 · drill</a></td></tr>
+        <tr><th scope="row">Titration Calculations: Weak Acid–Strong Base</th><td><a href="#d-titr">Lesson 11 · figure 7</a></td></tr>
+        <tr><th scope="row">Indicators</th><td><a href="#d-ind">Lesson 13 · figure 12</a></td></tr>
+        <tr><th scope="row">Titration of a Polyprotic Acid</th><td><a href="#d-ptitr">Lesson 14 · figure 11</a></td></tr>
+        <tr><th scope="row">Solubility Equilibria</th><td><a href="#d-ksp">Lesson 12 · figure 5</a></td></tr>
+        <tr><th scope="row">Factors Affecting Solubility</th><td><a href="#d-fact">Lesson 15</a></td></tr>
+        <tr><th scope="row">Formation of Complex Ions</th><td><a href="#d-fact">Lesson 15 · problem set #9</a></td></tr>
+        <tr><th scope="row">Precipitation of Ions</th><td><a href="#d-qual">Lesson 16 · figures 9–10</a></td></tr>
+        <tr><th scope="row">Qualitative Analysis</th><td><a href="#d-qual">Lesson 16</a></td></tr>
+        <tr><th scope="row">Acid-Base Titration Curves</th><td><a href="#v-ta">Figures 7, 11, 12</a></td></tr>
+      </tbody></table></div>
+  </section>
+
   <section class="flow" aria-labelledby="h-path">
     <h2 id="h-path">How to use this site</h2>
     <div class="grid">
       <a class="card pathcard" href="#discussion"><span class="n">Step 1</span><h3>Discussion</h3><p>Twelve lessons that follow your Ionic Equilibria handout, each split into what it is, how and when, and why. Every handout example is worked out, folded so you can try it first.</p></a>
       <a class="card pathcard" href="#compare"><span class="n">Step 2</span><h3>Compare</h3><p>Side-by-side tables for the pairs exams confuse: strong vs weak, leveling vs differentiating, Ka vs Ksp, buffer vs plain solution.</p></a>
-      <a class="card pathcard" href="#remember"><span class="n">Step 3</span><h3>Remember</h3><p>Mnemonics, flashcards and five labs: pH scale, salt sorter, buffer bench, speciation and titration curves. The Visualize tab adds ten figures, from the four regions of a titration curve to selective precipitation.</p></a>
+      <a class="card pathcard" href="#remember"><span class="n">Step 3</span><h3>Remember</h3><p>Mnemonics, flashcards and five labs: pH scale, salt sorter, buffer bench, speciation and titration curves. The Visualize tab adds twelve figures, from the four regions of a titration curve and polyprotic titrations to indicator choice and selective precipitation.</p></a>
       <a class="card pathcard" href="#strategy"><span class="n">Step 4</span><h3>Strategy</h3><p>How to attack any question: a seven-step solving routine, a "what's in the beaker" table for choosing the method, checklists with traps for every problem type, and reasoning routines for conceptual and Column I vs II items.</p></a>
       <a class="card pathcard" href="#past"><span class="n">Step 5</span><h3>Problem set &amp; past quiz</h3><p>Your ten problem-set questions with plans, multi-part answer checking and traps, plus look-alike twins; the past quiz items, every handout example and "Try these!" exercise with a full solution.</p></a>
-      <a class="card pathcard" href="#quiz"><span class="n">Step 6</span><h3>Quiz</h3><p>190 items: conceptual and problem-solving multiple choice, identification, and 53 Column I vs II comparative items. The Drill tab generates unlimited problems in 22 types (pH, buffers, titration regions, K<sub>sp</sub>, selective precipitation, complex ions) with full solutions.</p></a>
+      <a class="card pathcard" href="#quiz"><span class="n">Step 6</span><h3>Quiz</h3><p>219 items: conceptual and problem-solving multiple choice, identification, and 59 Column I vs II comparative items. The Drill tab generates unlimited problems in 24 types (pH, buffers and buffer capacity, titration regions, polyprotic titrations, K<sub>sp</sub>, selective precipitation, complex ions) with full solutions.</p></a>
     </div>
     <p class="hint">Constants are at 25 °C unless stated. Each problem states the constants it uses. Your Ionic Equilibria handout's table (HF 7.2 × 10⁻⁴, HOCl 3.5 × 10⁻⁸, HCN 6.2 × 10⁻¹⁰) differs slightly from Brown's textbook values used in some examples here (HF 6.8 × 10⁻⁴, HClO 3.0 × 10⁻⁸, HCN 4.9 × 10⁻¹⁰). The method is identical; always use the value your exam gives.</p>
   </section>
@@ -362,9 +397,9 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 <!-- ============ DISCUSSION ============ -->
 <section class="view" id="view-discussion" aria-labelledby="h-disc" hidden>
   <div class="flow" style="margin-bottom:28px">
-    <span class="eyebrow">Discussion · 12 lessons · follows your Ionic Equilibria handout</span>
+    <span class="eyebrow">Discussion · 16 lessons · follows your Ionic Equilibria handout and JoVE playlist</span>
     <h1 id="h-disc">The lesson, start to finish</h1>
-    <p class="lede">Every lesson follows the same three beats: what the idea is, how and when you use it, and why it works. The "why" is what lets you solve a problem you have never seen.</p>
+    <p class="lede">Every lesson follows the same beats: what the idea is, how and when you use it, a "Picture it" scene showing what the molecules are actually doing, and why it works. The "why" is what lets you solve a problem you have never seen.</p>
   </div>
   <div class="learn">
     <nav class="toc" aria-label="Lessons">
@@ -381,6 +416,10 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <li><a href="#d-poly">Polyprotic acids</a></li>
         <li><a href="#d-titr">Titrations &amp; indicators</a></li>
         <li><a href="#d-ksp">Solubility &amp; K<sub>sp</sub></a></li>
+        <li><a href="#d-ind">Indicators</a></li>
+        <li><a href="#d-ptitr">Polyprotic titration</a></li>
+        <li><a href="#d-fact">Solubility factors &amp; complex ions</a></li>
+        <li><a href="#d-qual">Precipitation &amp; qual analysis</a></li>
       </ol>
     </nav>
     <div>
@@ -407,6 +446,17 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <div class="eq">NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup> &nbsp;&nbsp; pairs: NH<sub>4</sub><sup>+</sup>/NH<sub>3</sub> and H<sub>2</sub>O/OH<sup>−</sup></div>
       <p>Water acted as a base in the first reaction and as an acid in the second. Your handout calls water <b>amphoteric</b> (able to act as acid or base); the more specific term for doing it by proton transfer is <b>amphiprotic</b>. Other amphiprotic species include HCO<sub>3</sub><sup>−</sup>, H<sub>2</sub>PO<sub>4</sub><sup>−</sup>, HPO<sub>4</sub><sup>2−</sup> and HS<sup>−</sup>.</p>
       <p><b>At the molecular level</b> (your handout's orbital pictures): the δ<sup>+</sup> H of HCl is drawn toward a lone pair on water's δ<sup>−</sup> O. The H–Cl bond breaks with both electrons staying on Cl, and the bare H<sup>+</sup> bonds to the O lone pair to form H<sub>3</sub>O<sup>+</sup>. With NH<sub>3</sub> the roles swap: N's lone pair pulls an H<sup>+</sup> off water, leaving OH<sup>−</sup>. In Lewis terms, water's O (or ammonia's N) is the electron-pair donor.</p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Zoom in on HCl gas dissolving in water.</p>
+<ol class="film">
+<li><b>Before.</b> An HCl molecule tumbles into the water. Chlorine is more electronegative than hydrogen, so the shared electron pair in H–Cl already sits closer to Cl. The H end is partly bare: a proton with only a thin share of electrons.</li>
+<li><b>Approach.</b> A water molecule turns its oxygen toward that H. Oxygen has two lone pairs sticking out like hands.</li>
+<li><b>Transfer.</b> One lone pair from O reaches for the H and forms a new O–H bond. At the same moment the old H–Cl electrons collapse completely onto Cl. Result: H<sub>3</sub>O<sup>+</sup> and Cl<sup>−</sup>.</li>
+<li><b>Read it three ways.</b> Arrhenius sees "H<sup>+</sup> appeared in water." Brønsted–Lowry sees "a proton moved from HCl to H<sub>2</sub>O." Lewis sees "an electron pair on O was donated to H." Same event, three cameras.</li>
+</ol>
+<p>Now picture BF<sub>3</sub> meeting NH<sub>3</sub>. Boron has only six valence electrons, so it has an empty orbital: an open seat. Nitrogen's lone pair slides into that seat and forms an F<sub>3</sub>B–NH<sub>3</sub> bond. No proton moves, so Arrhenius and Brønsted see nothing, but Lewis still calls it an acid–base reaction. That's why the Lewis definition is the widest: in <i>every</i> acid–base reaction, what actually moves is an electron pair.</p>
     </div>
     <div class="k">Why</div>
     <div class="v why">
@@ -443,6 +493,18 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>Or: [H<sub>3</sub>O<sup>+</sup>] = 1.0 × 10<sup>−14</sup> / 3.2 × 10<sup>−3</sup> = 3.1 × 10<sup>−12</sup> M → pH 11.51. Same answer, as it must be.</p>
       </div></details>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Zoom in on a glass of pure water. What do the molecules do during autoionization, and why does K<sub>w</sub> grow when the water is heated?</p>
+<ol class="film">
+<li><b>The crowd.</b> Liquid water is a crowd of bent H<sub>2</sub>O molecules, each H pointing at a lone pair on a neighbor's O (hydrogen bonds). These bonds break and re-form every few trillionths of a second.</li>
+<li><b>The jostle.</b> Random collisions occasionally shove one H much closer to the neighboring O than to its own. Its own O–H bond (a real covalent bond, about 460 kJ/mol) stretches.</li>
+<li><b>The hop.</b> The neighbor's lone pair captures the proton. The bonding electrons stay behind on the first O. Now one molecule has an extra proton (H<sub>3</sub>O<sup>+</sup>, positive) and the other is missing one (OH<sup>−</sup>, three lone pairs, negative).</li>
+<li><b>Snap back, usually.</b> A + and a − sitting side by side attract strongly. Almost every time, the proton hops straight back within about a picosecond. The pair survives only if surrounding water molecules turn to wrap each ion (O ends toward H<sub>3</sub>O<sup>+</sup>, H ends toward OH<sup>−</sup>) and protons relay along hydrogen-bond chains, carrying the + and − apart.</li>
+<li><b>The tally.</b> At 25 °C, at any instant, only about 1 in every 550 million water molecules has been split: 1.0 × 10<sup>−7</sup> M of each ion out of 55.5 M water. Each split makes one H<sub>3</sub>O<sup>+</sup> and one OH<sup>−</sup>, so pure water always has equal amounts. That equality is what "neutral" means.</li>
+</ol>
+<p><b>Why K<sub>w</sub> increases with temperature.</b> Making the ions costs energy: a covalent O–H bond breaks and two opposite charges are pulled apart. Hydration gives some of that energy back, but not all, so the reaction is <b>endothermic</b> (ΔH° ≈ +56 kJ/mol). Heat the water and the molecules collide harder. A bigger fraction of collisions now carry enough energy to complete the hop and separate the charges, so the forward process speeds up more than the reverse. Le Châtelier says the same thing: heat acts like a reactant, so adding it shifts the equilibrium right. With more ions at equilibrium, K<sub>w</sub> rises: 0.11 × 10<sup>−14</sup> at 0 °C, 1.0 × 10<sup>−14</sup> at 25 °C, about 51 × 10<sup>−14</sup> at 100 °C. Both ions increase equally, so boiling water has pH ≈ 6.1 and is still exactly neutral.</p>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p>Because K<sub>w</sub> is a constant, [H<sub>3</sub>O<sup>+</sup>] and [OH<sup>−</sup>] are locked in a seesaw: raise one tenfold and the other must fall tenfold. That is why you never have "zero OH<sup>−</sup>" even in strong acid.</p>
@@ -476,6 +538,15 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <details class="worked"><summary>Handout: pH of 2.0 × 10<sup>−3</sup> M Ba(OH)<sub>2</sub></summary><div><p>Ba(OH)<sub>2</sub> → Ba<sup>2+</sup> + 2OH<sup>−</sup>, so [OH<sup>−</sup>] = 4.0 × 10<sup>−3</sup> M. [H<sup>+</sup>] = 1.0 × 10<sup>−14</sup>/4.0 × 10<sup>−3</sup> = 2.5 × 10<sup>−12</sup> M, pH = <b>11.60</b>.</p><p>Likewise, in 0.100 M Ba(OH)<sub>2</sub>: 0.00 M Ba(OH)<sub>2</sub> remains, [Ba<sup>2+</sup>] = 0.100 M, [OH<sup>−</sup>] = 0.200 M.</p></div></details>
       <div class="tbl"><table style="min-width:460px"><caption>Ways to describe acid strength (handout Table 7.1)</caption><thead><tr><th>Property</th><th>Strong acid</th><th>Weak acid</th></tr></thead><tbody><tr><td>K<sub>a</sub></td><td>Large</td><td>Small</td></tr><tr><td>Position of dissociation equilibrium</td><td>Far to the right</td><td>Far to the left</td></tr><tr><td>[H<sup>+</sup>] vs [HA]<sub>0</sub></td><td>[H<sup>+</sup>] ≈ [HA]<sub>0</sub></td><td>[H<sup>+</sup>] ≪ [HA]<sub>0</sub></td></tr><tr><td>Conjugate base vs H<sub>2</sub>O</td><td>A<sup>−</sup> much weaker base than H<sub>2</sub>O</td><td>A<sup>−</sup> much stronger base than H<sub>2</sub>O</td></tr></tbody></table></div>
       <div class="note"><b>Trap: very dilute strong acid</b>1.0 × 10<sup>−8</sup> M HCl does not have pH 8. An acid cannot make water basic. At this level water's own 1.0 × 10<sup>−7</sup> M H<sub>3</sub>O<sup>+</sup> dominates; solving properly gives pH ≈ 6.98. Ignore water's contribution only when the acid gives more than about 10<sup>−6</sup> M H<sub>3</sub>O<sup>+</sup>.</div>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture 0.10 M HCl and 0.10 M NaOH on a molecular scale.</p>
+<ol class="film">
+<li><b>HCl: every molecule hands off its proton.</b> Each HCl meets water and gives up H<sup>+</sup>. The Cl<sup>−</sup> that remains is large: its extra electron is spread over a big volume, so it pulls only weakly on protons. Once Cl<sup>−</sup> drifts off with a shell of water H's pointing at it, nothing pulls the proton back. No HCl molecules remain.</li>
+<li><b>NaOH: no proton moves at all.</b> Solid NaOH is already a lattice of Na<sup>+</sup> and OH<sup>−</sup> ions. Water's O ends surround and tug away Na<sup>+</sup>; its H ends tug away OH<sup>−</sup>. The ions simply fall apart and float away, each in a water jacket.</li>
+<li><b>The ceiling.</b> Add an even stronger acid, like HClO<sub>4</sub>, and it also gives every proton to water. The strongest acid that can exist in water is H<sub>3</sub>O<sup>+</sup> itself. Every stronger acid is "leveled" down to H<sub>3</sub>O<sup>+</sup>, which is why HCl and HClO<sub>4</sub> look equally strong in water.</li>
+</ol>
     </div>
     <div class="k">Why</div>
     <div class="v why">
@@ -518,6 +589,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <li><b>Going backwards</b> (finding K<sub>a</sub> from a measured pH): [H<sub>3</sub>O<sup>+</sup>] = 10<sup>−pH</sup> = x, then K<sub>a</sub> = x² / (C − x).</li>
       </ul>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture 1000 acetic acid molecules in 0.10 M solution.</p>
+<ol class="film">
+<li><b>A snapshot.</b> About 987 still hold their O–H proton. About 13 have handed it to a water molecule, leaving CH<sub>3</sub>COO<sup>−</sup> and H<sub>3</sub>O<sup>+</sup>.</li>
+<li><b>The film.</b> It's not the same 13 molecules. Protons hop off and back on constantly: any given molecule spends only about 1.3% of its time ionized. K<sub>a</sub> describes that balance, not a frozen state.</li>
+<li><b>Why so few?</b> Acetate is a fairly good base: its negative charge is shared over two oxygens, but it still wants a proton. H<sub>3</sub>O<sup>+</sup> is a very good proton donor. So the reverse reaction (H<sub>3</sub>O<sup>+</sup> + CH<sub>3</sub>COO<sup>−</sup> → back) wins most encounters.</li>
+<li><b>Dilute it tenfold.</b> Forward: one molecule meets water, and water is always next to it, so dilution barely slows this. Reverse: an acetate and an H<sub>3</sub>O<sup>+</sup> have to <i>find each other</i>, and they're now much farther apart. Recombination slows, so a larger fraction stays ionized. That's the molecular reason percent ionization rises on dilution.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p><b>Dilution increases percent ionization.</b> At 0.10 M acetic acid is 1.3% ionized; at 0.010 M it is 4.2% ionized, even though the pH rises from 2.87 to 3.37. Why: ionization turns one particle (HA) into two (H<sub>3</sub>O<sup>+</sup> + A<sup>−</sup>). Diluting drops the reaction quotient Q = x²/(C − x) below K<sub>a</sub> because the numerator has two concentration terms and the denominator only one. The system shifts right to restore K<sub>a</sub>, the same way Le Châtelier predicts that a gas reaction shifts toward more moles when volume increases. More of the acid ionizes, but each ion is more spread out, so [H<sub>3</sub>O<sup>+</sup>] still falls.</p>
@@ -529,7 +610,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 5 -->
 <article class="topic" id="d-wbase" aria-labelledby="t5">
-  <header><span class="eyebrow">Lesson 1</span><h2 id="t5">Weak bases, K<sub>b</sub>, and K<sub>a</sub> · K<sub>b</sub> = K<sub>w</sub></h2></header>
+  <header><span class="eyebrow">Lesson 5</span><h2 id="t5">Weak bases, K<sub>b</sub>, and K<sub>a</sub> · K<sub>b</sub> = K<sub>w</sub></h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -549,6 +630,15 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <p>Handout: for HNO<sub>2</sub>, K<sub>a</sub> = 4.5 × 10<sup>−4</sup>, so K<sub>b</sub>(NO<sub>2</sub><sup>−</sup>) = 1.0 × 10<sup>−14</sup>/4.5 × 10<sup>−4</sup> = 2.2 × 10<sup>−11</sup>.</p>
       <p>If a table only gives K<sub>a</sub> of HF, you can still find K<sub>b</sub> of F<sup>−</sup>: K<sub>b</sub> = 1.0 × 10<sup>−14</sup> / 6.8 × 10<sup>−4</sup> = 1.5 × 10<sup>−11</sup>.</p>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture NH<sub>3</sub> dissolved in water.</p>
+<ol class="film">
+<li><b>The grab.</b> Nitrogen's lone pair points out of the pyramid like a hook. When a water's H swings close, the hook catches it: NH<sub>3</sub> becomes NH<sub>4</sub><sup>+</sup>, and the water left behind is OH<sup>−</sup>.</li>
+<li><b>The give-back.</b> NH<sub>4</sub><sup>+</sup> and OH<sup>−</sup> attract each other, and OH<sup>−</sup> easily takes the proton back. Only about 1% of the NH<sub>3</sub> is protonated at any moment in 0.1 M solution.</li>
+<li><b>Why K<sub>a</sub> × K<sub>b</sub> = K<sub>w</sub>.</b> Write NH<sub>4</sub><sup>+</sup> giving its proton to water (K<sub>a</sub>) and NH<sub>3</sub> taking a proton from water (K<sub>b</sub>). Add the two steps: NH<sub>4</sub><sup>+</sup> and NH<sub>3</sub> cancel, leaving 2H<sub>2</sub>O ⇌ H<sub>3</sub>O<sup>+</sup> + OH<sup>−</sup>. The proton just passed from one water to another via ammonia. Adding reactions multiplies constants, so K<sub>a</sub>K<sub>b</sub> = K<sub>w</sub>. The better a species holds its proton, the worse its partner is at grabbing one.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p>Add the two reactions: HA + H<sub>2</sub>O ⇌ H<sub>3</sub>O<sup>+</sup> + A<sup>−</sup> (K<sub>a</sub>) and A<sup>−</sup> + H<sub>2</sub>O ⇌ HA + OH<sup>−</sup> (K<sub>b</sub>). HA and A<sup>−</sup> cancel and you are left with 2H<sub>2</sub>O ⇌ H<sub>3</sub>O<sup>+</sup> + OH<sup>−</sup>, which is K<sub>w</sub>. When reactions add, their constants multiply, so K<sub>a</sub>K<sub>b</sub> = K<sub>w</sub>. That product is fixed, so a bigger K<sub>a</sub> must mean a smaller K<sub>b</sub>. It is the conjugate rule from Lesson 1, now with numbers.</p>
@@ -558,7 +648,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 6 -->
 <article class="topic" id="d-struct" aria-labelledby="t6">
-  <header><span class="eyebrow">Lesson 2</span><h2 id="t6">Molecular structure and acid strength</h2></header>
+  <header><span class="eyebrow">Lesson 6</span><h2 id="t6">Molecular structure and acid strength</h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -573,6 +663,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
     <div class="k">How</div>
     <div class="v">
       <p>Ask which acid family you are comparing first, then apply that family's rule. The most common exam mistake is using electronegativity down a group: F is the most electronegative halogen, yet HF is the weakest hydrohalic acid.</p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture the H–X bond and what's left behind when the proton leaves.</p>
+<ol class="film">
+<li><b>H–F vs H–I.</b> F is a small, tight atom; H–F is short and strong (565 kJ/mol). I is a huge, soft atom; the H–I overlap is poor and the bond is long and weak (295 kJ/mol). The proton escapes I much more easily.</li>
+<li><b>After the proton leaves.</b> F<sup>−</sup> packs its negative charge into a tiny volume: a strong pull that grabs protons right back. I<sup>−</sup> spreads its charge over a large cloud: a weak pull. A weak pull on the proton means a weak conjugate base, which means a strong acid. Down a group, bond strength and charge spreading win: HF &lt; HCl &lt; HBr &lt; HI.</li>
+<li><b>Oxyacids, one O at a time.</b> In H–O–Cl the proton sits on an O attached to Cl. Each extra O on Cl (HClO<sub>2</sub>, HClO<sub>3</sub>, HClO<sub>4</sub>) pulls electron density away from Cl, which pulls it from the O–H oxygen, leaving the H more exposed and loosely held.</li>
+<li><b>And the anion.</b> After the proton leaves ClO<sub>4</sub><sup>−</sup>, its −1 charge is spread over four oxygens by resonance, so each O carries only a quarter of it. ClO<sup>−</sup> must hold the whole charge on one O. A spread-out charge doesn't pull protons back, so HClO<sub>4</sub> is strong and HOCl is weak.</li>
+</ol>
     </div>
     <div class="k">Why</div>
     <div class="v why">
@@ -603,7 +703,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 7 -->
 <article class="topic" id="d-salts" aria-labelledby="t7">
-  <header><span class="eyebrow">Lesson 3</span><h2 id="t7">Salts: acidic, basic, or neutral?</h2></header>
+  <header><span class="eyebrow">Lesson 7</span><h2 id="t7">Salts: acidic, basic, or neutral?</h2></header>
   <p>A salt is the ionic product of an acid–base neutralization. Dissolving one gives you two ions, and each can react with water. That reaction is called <b>hydrolysis</b>. The pH of the solution depends on which ion, if any, hydrolyzes.</p>
   <div class="wh">
     <div class="k">What</div>
@@ -653,6 +753,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         </ul>
       </div></details>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Drop three salts into water and watch each ion.</p>
+<ol class="film">
+<li><b>NaCl.</b> Na<sup>+</sup> gets a jacket of water O's; Cl<sup>−</sup> gets a jacket of water H's. Neither ion pulls a proton on or off water. Na<sup>+</sup> is too weakly charged to tear an H off its jacket, and Cl<sup>−</sup> is too weak a base to grab one. pH stays 7.</li>
+<li><b>CH<sub>3</sub>COONa.</b> Na<sup>+</sup> stays a spectator. But acetate is surrounded by water H's pointing at it, and now and then it pulls one off: CH<sub>3</sub>COO<sup>−</sup> + H<sub>2</sub>O → CH<sub>3</sub>COOH + OH<sup>−</sup>. Those leftover OH<sup>−</sup> make the solution basic.</li>
+<li><b>NH<sub>4</sub>Cl.</b> NH<sub>4</sub><sup>+</sup> hands one of its H's to a neighboring water: NH<sub>4</sub><sup>+</sup> + H<sub>2</sub>O → NH<sub>3</sub> + H<sub>3</sub>O<sup>+</sup>. Acidic.</li>
+<li><b>AlCl<sub>3</sub> or FeCl<sub>3</sub>.</b> Al<sup>3+</sup> is tiny and +3. It binds six water molecules and pulls hard on their O's electrons. That weakens the O–H bonds of the bound waters, so one of them releases a proton: [Al(H<sub>2</sub>O)<sub>6</sub>]<sup>3+</sup> ⇌ [Al(H<sub>2</sub>O)<sub>5</sub>OH]<sup>2+</sup> + H<sup>+</sup>. Small, highly charged metal ions make acidic salts.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p><b>Why spectators stay silent.</b> Cl<sup>−</sup> is the conjugate base of a strong acid. Its K<sub>b</sub> would be K<sub>w</sub>/(huge K<sub>a</sub>), which is effectively zero, so it never pulls a proton from water. The same logic makes Na<sup>+</sup> inert: NaOH is strong, so Na<sup>+</sup> has no tendency to grab OH<sup>−</sup> back.</p>
@@ -667,7 +777,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 8 -->
 <article class="topic" id="d-common" aria-labelledby="t8">
-  <header><span class="eyebrow">Lesson 4</span><h2 id="t8">The common-ion effect</h2></header>
+  <header><span class="eyebrow">Lesson 8</span><h2 id="t8">The common-ion effect</h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -691,6 +801,17 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>[OH<sup>−</sup>] = K<sub>b</sub>[NH<sub>3</sub>]/[NH<sub>4</sub><sup>+</sup>] = 1.8 × 10<sup>−5</sup> × 0.20/0.30 = 1.2 × 10<sup>−5</sup> M → pOH 4.92 → pH = <b>9.08</b>. Plain 0.20 M NH<sub>3</sub> would be pH 11.28.</p>
       </div></details>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture acetic acid, then add a spoonful of sodium acetate.</p>
+<ol class="film">
+<li><b>Before.</b> Roughly 1.3% of the acetic acid is ionized; H<sub>3</sub>O<sup>+</sup> ions wander and occasionally meet an acetate and recombine. Forward and reverse rates are balanced.</li>
+<li><b>The flood.</b> The salt dissolves completely and fills the solution with acetate ions, about 100 times more than before.</li>
+<li><b>Recombination speeds up.</b> Now every H<sub>3</sub>O<sup>+</sup> bumps into acetate far more often and gets turned back into CH<sub>3</sub>COOH. The forward rate (HA meeting water) hasn't changed.</li>
+<li><b>New balance.</b> The reverse reaction outruns the forward one until [H<sub>3</sub>O<sup>+</sup>] drops enough that the encounter rate matches again. K<sub>a</sub> is unchanged; [H<sub>3</sub>O<sup>+</sup>] is ~100× lower.</li>
+</ol>
+<p>Same picture for AgCl in NaCl: Ag<sup>+</sup> ions that leave the crystal meet Cl<sup>−</sup> far more often and are redeposited, so less AgCl stays dissolved.</p>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p>This is Le Châtelier's principle with a number attached. Adding A<sup>−</sup> makes Q = [H<sub>3</sub>O<sup>+</sup>][A<sup>−</sup>]/[HA] larger than K<sub>a</sub>. To bring Q back down to K<sub>a</sub>, the reaction runs in reverse, consuming H<sub>3</sub>O<sup>+</sup> and A<sup>−</sup> to form HA. K<sub>a</sub> itself does not change (only temperature changes K); what changes is the <b>position</b> of the equilibrium.</p>
@@ -704,7 +825,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 9 -->
 <article class="topic" id="d-buffer" aria-labelledby="t9">
-  <header><span class="eyebrow">Lesson 5</span><h2 id="t9">Buffers</h2></header>
+  <header><span class="eyebrow">Lesson 9</span><h2 id="t9">Buffers</h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -731,6 +852,32 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>5.00 = 4.74 + log(b/a) → log(b/a) = 0.26 → b/a = 10<sup>0.26</sup> = <b>1.8</b>. You need 1.8 mol of acetate for every mole of acetic acid.</p>
       </div></details>
     </div>
+    <div class="k" id="b-eff">Effectiveness</div>
+    <div class="v">
+      <p><b>Buffer effectiveness has two parts:</b> <i>range</i> (which pH values it can hold) and <i>capacity</i> (how much acid or base it can absorb before the pH moves by 1 unit).</p>
+      <ul class="tight">
+        <li><b>Range = pK<sub>a</sub> ± 1.</b> Outside a 10 : 1 or 1 : 10 ratio, one component is nearly gone, so the buffer can absorb only one direction.</li>
+        <li><b>Capacity grows with total concentration.</b> Ten times more of both components absorbs ten times more acid for the same pH change, at the same starting pH.</li>
+        <li><b>Capacity is largest at 1 : 1.</b> That's where both "reservoirs" are equally full.</li>
+        <li><b>Rule:</b> pH changes by 1 unit whenever the ratio changes by a factor of 10.</li>
+      </ul>
+      <details class="worked"><summary>Worked example: how much HCl drops the pH by 1.00?</summary><div>
+        <p><b>Buffer A:</b> 1.00 L of 0.10 M HA and 0.10 M A<sup>−</sup> (pH = pK<sub>a</sub>). Dropping the pH by 1 means the ratio must fall from 1 to 0.10. Adding x mol H<sup>+</sup>: (0.10 − x)/(0.10 + x) = 0.10 → 0.10 − x = 0.010 + 0.10x → <b>x = 0.082 mol</b>.</p>
+        <p><b>Buffer B:</b> 1.00 L of 0.010 M of each (same pH). The same algebra gives <b>x = 0.0082 mol</b>: ten times less capacity, same pH.</p>
+        <p><b>Buffer C:</b> 1.00 L of 0.10 M HA and 0.010 M A<sup>−</sup> (pH = pK<sub>a</sub> − 1, the edge of the range). To drop one more unit: (0.010 − x)/(0.10 + x) = 0.010 → <b>x = 0.0089 mol</b>. It still resists added base well, but not added acid: its A<sup>−</sup> reservoir is almost empty.</p>
+      </div></details>
+      <p class="seeit"><span>See it</span><a href="#v-al">Why pK<sub>a</sub> ± 1</a><a href="#v-bc">Buffer vs water</a></p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture a buffer as a crowd of two kinds of "goalkeepers": CH<sub>3</sub>COOH (holding a proton) and CH<sub>3</sub>COO<sup>−</sup> (ready to catch one), in similar numbers.</p>
+<ol class="film">
+<li><b>A drop of HCl.</b> Each incoming H<sub>3</sub>O<sup>+</sup> is surrounded by acetates and almost immediately hands its proton to one. H<sub>3</sub>O<sup>+</sup> (strong) has been swapped for CH<sub>3</sub>COOH (weak). Free H<sub>3</sub>O<sup>+</sup> barely changes.</li>
+<li><b>A drop of NaOH.</b> Each OH<sup>−</sup> meets an acetic acid and pulls off its proton: water plus acetate. OH<sup>−</sup> (strong) has become acetate (weak).</li>
+<li><b>Only the ratio shifts.</b> Each catch moves one particle from one crowd to the other. With 0.25 mol in each crowd, 0.01 mol of added acid shifts the ratio from 1.00 to 0.92, and pH moves only 0.03.</li>
+<li><b>When it fails.</b> If one crowd is small (1 acetate per 100 acids), a modest amount of acid uses up the acetates. After that, H<sub>3</sub>O<sup>+</sup> just accumulates. This is why a buffer works best at a 1 : 1 ratio and with large amounts of both.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p>A buffer has a reservoir on each side. Added H<sup>+</sup> is captured by the base (A<sup>−</sup> + H<sup>+</sup> → HA). Added OH<sup>−</sup> is captured by the acid (HA + OH<sup>−</sup> → A<sup>−</sup> + H<sub>2</sub>O). The strong reagent is converted into the weak partner, and pH depends only on the <b>logarithm of a ratio</b>. With large amounts of both, a small addition barely changes the ratio, and the log flattens that change even further. Henderson–Hasselbalch is just K<sub>a</sub> rearranged: take −log of [H<sub>3</sub>O<sup>+</sup>] = K<sub>a</sub>[HA]/[A<sup>−</sup>] and you get it. The ±1 range follows because outside 10:1 one reservoir becomes too small to absorb anything.</p>
@@ -749,7 +896,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 10 -->
 <article class="topic" id="d-poly" aria-labelledby="t10">
-  <header><span class="eyebrow">Lesson 6</span><h2 id="t10">Polyprotic acids</h2></header>
+  <header><span class="eyebrow">Lesson 10</span><h2 id="t10">Polyprotic acids</h2></header>
   <div class="ext"><b>Beyond your handout</b>Your Ionic Equilibria handout only touches polyprotic acids through H<sub>2</sub>SO<sub>4</sub>, H<sub>3</sub>PO<sub>4</sub> titration and H<sub>2</sub>S. This lesson is extra background that CHEM 18 exams often include. Skim it if time is short.</div>
   <div class="wh">
     <div class="k">What</div>
@@ -781,6 +928,15 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>Step 2: K<sub>a2</sub> = [H<sub>3</sub>O<sup>+</sup>][CO<sub>3</sub><sup>2−</sup>]/[HCO<sub>3</sub><sup>−</sup>]. Since [H<sub>3</sub>O<sup>+</sup>] ≈ [HCO<sub>3</sub><sup>−</sup>], they cancel, so [CO<sub>3</sub><sup>2−</sup>] = K<sub>a2</sub> = <b>5.6 × 10<sup>−11</sup> M</b>.</p>
       </div></details>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture H<sub>2</sub>CO<sub>3</sub> losing its two protons.</p>
+<ol class="film">
+<li><b>First proton.</b> It leaves a neutral molecule: nothing tugs it back but the bond itself. K<sub>a1</sub> = 4.3 × 10<sup>−7</sup>.</li>
+<li><b>Second proton.</b> It must now leave HCO<sub>3</sub><sup>−</sup>, which is already negative. The −1 charge pulls on the departing + proton, and the ion left behind would be −2, with more charge crowded into the same small space. K<sub>a2</sub> is about 10 000 times smaller.</li>
+<li><b>Plus the crowd effect.</b> The first step already filled the solution with H<sub>3</sub>O<sup>+</sup>. Those ions keep bumping into CO<sub>3</sub><sup>2−</sup> and putting protons back on (a common-ion effect), which suppresses the second step even more.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p><b>Why K<sub>a1</sub> &gt; K<sub>a2</sub> &gt; K<sub>a3</sub>, always.</b> The first proton leaves a neutral molecule. The second must leave an ion that is already negative, and the third leaves a 2− ion. Pulling a positive proton away from an increasingly negative species takes more and more energy, because of electrostatic attraction. On top of that, the H<sub>3</sub>O<sup>+</sup> already produced by step 1 is a common ion that suppresses step 2. Both effects push the later steps far to the left.</p>
@@ -792,7 +948,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 11 -->
 <article class="topic" id="d-titr" aria-labelledby="t11">
-  <header><span class="eyebrow">Lesson 7</span><h2 id="t11">Titrations and indicators</h2></header>
+  <header><span class="eyebrow">Lesson 11</span><h2 id="t11">Titrations and indicators</h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -838,6 +994,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       </div></details>
       <p><b>Polyprotic titrations</b> show one equivalence point per proton (if the K<sub>a</sub> values are far enough apart). H<sub>3</sub>PO<sub>4</sub> shows two clear jumps; the third is too weak to see in water. At the first half-equivalence point pH = pK<sub>a1</sub>; at the second, pH = pK<sub>a2</sub>.</p>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture NaOH dripping into acetic acid with a few drops of phenolphthalein.</p>
+<ol class="film">
+<li><b>Early drops.</b> Each OH<sup>−</sup> lands in a sea of CH<sub>3</sub>COOH and takes a proton: water plus acetate. The flask now holds a growing crowd of acetate alongside the acid. That's a buffer, so pH climbs slowly.</li>
+<li><b>Halfway.</b> Half the molecules have been converted. The two crowds are equal, so pH = pK<sub>a</sub>.</li>
+<li><b>Equivalence.</b> The last acid molecule has been converted. The flask holds only Na<sup>+</sup>, acetate and water, and acetate pulls protons off water (Lesson 7), so the pH is about 8.7, not 7.</li>
+<li><b>One drop past.</b> Nothing is left to absorb OH<sup>−</sup>, so it accumulates and pH shoots up. The indicator's few molecules lose their protons, change structure, and the flask turns pink.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p>The curve is flat in the buffer region because you are making a buffer as you go: every drop of OH<sup>−</sup> converts HA into A<sup>−</sup>. It is flattest at half-equivalence, where the 1:1 ratio gives maximum buffer capacity. Near equivalence, the HA reservoir runs out, so the next drops have nothing to react with and the pH shoots up.</p>
@@ -858,7 +1024,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 
 <!-- 12 -->
 <article class="topic" id="d-ksp" aria-labelledby="t12">
-  <header><span class="eyebrow">Lesson 8</span><h2 id="t12">Solubility equilibria and K<sub>sp</sub></h2></header>
+  <header><span class="eyebrow">Lesson 12</span><h2 id="t12">Solubility equilibria and K<sub>sp</sub></h2></header>
   <div class="wh">
     <div class="k">What</div>
     <div class="v">
@@ -919,6 +1085,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>AgCl begins when [Ag<sup>+</sup>] = 1.8 × 10<sup>−10</sup>/0.010 = 1.8 × 10<sup>−8</sup> M. Ag<sub>2</sub>CrO<sub>4</sub> (K<sub>sp</sub> 1.1 × 10<sup>−12</sup>) begins when [Ag<sup>+</sup>] = √(1.1 × 10<sup>−12</sup>/0.010) = 1.0 × 10<sup>−5</sup> M. AgCl precipitates first. The red Ag<sub>2</sub>CrO<sub>4</sub> appears only after nearly all Cl<sup>−</sup> is gone, which is how the Mohr method detects the end point of a chloride titration.</p>
       </div></details>
     </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+<p class="pic-lead">Picture a crystal of AgCl sitting in water.</p>
+<ol class="film">
+<li><b>Escape.</b> At the surface, an Ag<sup>+</sup> on a corner has fewer neighbors holding it in place. Water molecules crowd around it with their O ends, and now and then they pull it into solution. A Cl<sup>−</sup> leaves the same way, tugged by water's H ends.</li>
+<li><b>Return.</b> Dissolved Ag<sup>+</sup> and Cl<sup>−</sup> wander. When an Ag<sup>+</sup> and a Cl<sup>−</sup> both bump into the crystal surface, they can stick back on. The rate of returning depends on how often both ions arrive, so it is proportional to [Ag<sup>+</sup>][Cl<sup>−</sup>].</li>
+<li><b>Saturation.</b> Leaving rate (constant, since the solid's surface doesn't change in kind) = returning rate (∝ [Ag<sup>+</sup>][Cl<sup>−</sup>]). So the product [Ag<sup>+</sup>][Cl<sup>−</sup>] is fixed: that's K<sub>sp</sub>. How much solid is present doesn't matter.</li>
+<li><b>Why so small?</b> The Ag–Cl attraction in the lattice is strong (partly covalent), and hydration energy doesn't make up for it. Escapes are rare, so the saturated solution has only 1.3 × 10<sup>−5</sup> M of each ion.</li>
+</ol>
+    </div>
     <div class="k">Why</div>
     <div class="v why">
       <p><b>Compare K<sub>sp</sub> values directly only for the same formula type.</b> Ag<sub>2</sub>CrO<sub>4</sub> has a smaller K<sub>sp</sub> (1.1 × 10<sup>−12</sup>) than AgCl (1.8 × 10<sup>−10</sup>) but is <i>more</i> soluble: s = (K<sub>sp</sub>/4)<sup>1/3</sup> = 6.5 × 10<sup>−5</sup> M versus 1.3 × 10<sup>−5</sup> M. The exponents in the expression differ, so the constants are not on the same scale.</p>
@@ -932,6 +1108,241 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
   <div class="ph"><b>Health link</b>Tooth enamel is hydroxyapatite, Ca<sub>5</sub>(PO<sub>4</sub>)<sub>3</sub>OH. Acid from bacteria feeding on sugar removes OH<sup>−</sup> and PO<sub>4</sub><sup>3−</sup>, so enamel dissolves (caries). Fluoride swaps in for OH<sup>−</sup> to form fluorapatite, which is less soluble and has a less basic anion, so it resists acid. BaSO<sub>4</sub> can be swallowed for X-ray imaging even though Ba<sup>2+</sup> is toxic, because its K<sub>sp</sub> (1.1 × 10<sup>−10</sup>) keeps free Ba<sup>2+</sup> extremely low, and its non-basic sulfate anion means stomach acid barely dissolves it.</div>
   <p class="seeit"><span>See it</span><a href="#v-ks">Ksp vs solubility analysis</a><a href="#v-ci">Common-ion plot</a><a href="#v-qm">Q vs Ksp map</a><a href="#v-sp">Selective precipitation</a></p>
 </article>
+
+<!-- 13 -->
+<article class="topic" id="d-ind" aria-labelledby="t13">
+  <header><span class="eyebrow">Lesson 13</span><h2 id="t13">Acid–base indicators</h2></header>
+  <div class="wh">
+    <div class="k">What</div>
+    <div class="v">
+      <p>An <b>indicator</b> is a weak acid (HIn) whose acid form and conjugate-base form (In<sup>−</sup>) have different colors.</p>
+      <div class="eq">HIn(aq) + H<sub>2</sub>O(l) ⇌ H<sub>3</sub>O<sup>+</sup>(aq) + In<sup>−</sup>(aq) &nbsp;&nbsp; K<sub>In</sub> = [H<sub>3</sub>O<sup>+</sup>][In<sup>−</sup>]/[HIn]</div>
+      <p>Rearranged: [In<sup>−</sup>]/[HIn] = K<sub>In</sub>/[H<sub>3</sub>O<sup>+</sup>]. The pH sets the color ratio. Your eye sees a clear change when the ratio goes from about 1 : 10 to 10 : 1, so the <b>color-change range is about pK<sub>In</sub> ± 1</b>.</p>
+      <div class="tbl"><table>
+        <caption>Common indicators</caption>
+        <thead><tr><th scope="col">Indicator</th><th scope="col">Range (pH)</th><th scope="col">Acid color → base color</th><th scope="col">Typical use</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Methyl orange</th><td class="num">3.1–4.4</td><td>red → yellow</td><td>Strong acid + weak base (very weak bases)</td></tr>
+          <tr><th scope="row">Bromocresol green</th><td class="num">3.8–5.4</td><td>yellow → blue</td><td>Weak base + strong acid</td></tr>
+          <tr><th scope="row">Methyl red</th><td class="num">4.2–6.3</td><td>red → yellow</td><td>Weak base + strong acid (NH<sub>3</sub> + HCl)</td></tr>
+          <tr><th scope="row">Bromothymol blue</th><td class="num">6.0–7.6</td><td>yellow → blue</td><td>Strong + strong</td></tr>
+          <tr><th scope="row">Phenol red</th><td class="num">6.8–8.4</td><td>yellow → red</td><td>Strong + strong; cell-culture media</td></tr>
+          <tr><th scope="row">Phenolphthalein</th><td class="num">8.2–10.0</td><td>colorless → pink</td><td>Weak acid + strong base; also strong + strong</td></tr>
+          <tr><th scope="row">Thymolphthalein</th><td class="num">9.4–10.6</td><td>colorless → blue</td><td>Very weak acids, 2nd step of H<sub>2</sub>CO<sub>3</sub></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="k">How</div>
+    <div class="v">
+      <ol class="tight">
+        <li><b>Find the equivalence-point pH</b> (Lesson 11): 7 for strong + strong, &gt; 7 for weak acid + strong base, &lt; 7 for weak base + strong acid.</li>
+        <li><b>Pick an indicator whose range lies inside the steep, nearly vertical part of the curve</b> that contains that pH. It doesn't have to match exactly; it has to change color within a fraction of a drop of the equivalence volume.</li>
+        <li>Strong + strong has a huge jump (about pH 4 to 10), so methyl red, bromothymol blue and phenolphthalein all work. A weak acid's jump is shorter and sits higher (about 7 to 11), so methyl red would change far too early.</li>
+        <li><b>Use only 2–3 drops.</b> The indicator is itself a weak acid and consumes a tiny bit of titrant.</li>
+      </ol>
+      <details class="worked"><summary>Worked example: is methyl red a good choice for 0.10 M CH<sub>3</sub>COOH titrated with 0.10 M NaOH?</summary><div>
+        <p>Equivalence pH ≈ 8.7 (Lesson 11). Methyl red turns fully yellow by pH 6.3. On the acetic acid curve, pH 6.3 is reached when [A<sup>−</sup>]/[HA] = 10<sup>6.3−4.74</sup> = 36, i.e. when 36/37 = 97.3% of the acid has been neutralized. The color would change about 2.7% early, roughly 0.7 mL short on a 25 mL titration. <b>Not acceptable.</b> Phenolphthalein (8.2–10.0) changes within a drop of equivalence.</p>
+      </div></details>
+      <p class="seeit"><span>See it</span><a href="#v-in">Choosing an indicator</a><a href="#v-ta">Titration anatomy</a></p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+      <p class="pic-lead">Picture a phenolphthalein molecule as the base drips in.</p>
+      <ol class="film">
+        <li><b>In acid (colorless).</b> A central carbon is bonded to four groups in a tetrahedron, and one of them closes a ring (a lactone). The three benzene rings point in different directions and can't share electrons with one another. Small, isolated electron systems absorb only ultraviolet light, so we see nothing.</li>
+        <li><b>Near pH 8–9.</b> OH<sup>−</sup> pulls protons off the two phenol O–H groups. The extra negative charge pushes the lactone ring open, and the central carbon becomes flat (sp<sup>2</sup>).</li>
+        <li><b>In base (pink).</b> Now one continuous, conjugated electron system runs across all three rings. A larger delocalized system absorbs lower-energy, longer-wavelength light: green light near 550 nm. White light minus green looks magenta-pink.</li>
+        <li><b>The ratio.</b> Each molecule is either colorless or pink. The flask color is the mixture. At pH 9.4 (pK<sub>In</sub>), half are pink; at 8.4, about 1 in 10, just barely visible.</li>
+      </ol>
+    </div>
+    <div class="k">Why</div>
+    <div class="v why">
+      <p>An indicator works because it is a tiny weak acid competing for protons with everything else in the flask. It is present in such small amounts that it can't move the pH. Instead, the pH moves it: [In<sup>−</sup>]/[HIn] = K<sub>In</sub>/[H<sub>3</sub>O<sup>+</sup>]. Near the equivalence point, [H<sub>3</sub>O<sup>+</sup>] changes by a factor of 10<sup>5</sup> or more within a single drop, so the ratio sweeps from 1 : 10 to 10 : 1 almost instantly. That's why an indicator gives a sharp end point only when its range sits on the steep part of the curve.</p>
+    </div>
+  </div>
+  <div class="ph"><b>Local link</b>Blue ternate (<i>pukingan</i>, butterfly pea) tea turns from deep blue to violet-pink when you squeeze calamansi into it. Its anthocyanin pigments are natural acid–base indicators: protonating them changes their conjugated structure and therefore the light they absorb.</div>
+  <div class="check"><h4>Check yourself</h4>
+    <details><summary>Why is methyl orange a poor indicator for acetic acid + NaOH but a good one for NH<sub>3</sub> + HCl?</summary><p>Methyl orange changes at pH 3.1–4.4. The acetic acid curve passes that range at the very start, long before equivalence (pH 8.7). The NH<sub>3</sub>/HCl equivalence is acidic (≈ 5.3), and the steep drop after it passes through 4.4–3.1 within a drop or so, so it works (methyl red is even better).</p></details>
+  </div>
+</article>
+
+<!-- 14 -->
+<article class="topic" id="d-ptitr" aria-labelledby="t14">
+  <header><span class="eyebrow">Lesson 14</span><h2 id="t14">Titration of a polyprotic acid</h2></header>
+  <div class="wh">
+    <div class="k">What</div>
+    <div class="v">
+      <p>A diprotic acid H<sub>2</sub>A titrated with NaOH loses its protons <b>one at a time</b>, giving <b>two equivalence points</b> if K<sub>a1</sub>/K<sub>a2</sub> is about 10<sup>3</sup> or more.</p>
+      <div class="eq block">H<sub>2</sub>A + OH<sup>−</sup> → HA<sup>−</sup> + H<sub>2</sub>O &nbsp; (all of it, up to V<sub>eq1</sub>)<br>HA<sup>−</sup> + OH<sup>−</sup> → A<sup>2−</sup> + H<sub>2</sub>O &nbsp; (from V<sub>eq1</sub> to V<sub>eq2</sub> = 2V<sub>eq1</sub>)</div>
+      <div class="tbl"><table>
+        <caption>Six points on a diprotic titration curve</caption>
+        <thead><tr><th scope="col">Point</th><th scope="col">What's in the flask</th><th scope="col">pH from</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Start</th><td>H<sub>2</sub>A only</td><td>Weak acid with K<sub>a1</sub> (ignore K<sub>a2</sub>)</td></tr>
+          <tr><th scope="row">½ V<sub>eq1</sub></th><td>H<sub>2</sub>A = HA<sup>−</sup></td><td><b>pH = pK<sub>a1</sub></b></td></tr>
+          <tr><th scope="row">V<sub>eq1</sub></th><td>HA<sup>−</sup> only (amphiprotic)</td><td><b>pH ≈ ½(pK<sub>a1</sub> + pK<sub>a2</sub>)</b></td></tr>
+          <tr><th scope="row">1½ V<sub>eq1</sub></th><td>HA<sup>−</sup> = A<sup>2−</sup></td><td><b>pH = pK<sub>a2</sub></b></td></tr>
+          <tr><th scope="row">V<sub>eq2</sub></th><td>A<sup>2−</sup> only</td><td>Weak base: K<sub>b1</sub> = K<sub>w</sub>/K<sub>a2</sub>, total volume</td></tr>
+          <tr><th scope="row">Past V<sub>eq2</sub></th><td>Excess OH<sup>−</sup></td><td>Excess mol ÷ total volume</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="k">How</div>
+    <div class="v">
+      <ul class="tight">
+        <li><b>Volumes first.</b> V<sub>eq1</sub> = mol H<sub>2</sub>A ÷ M<sub>NaOH</sub>; V<sub>eq2</sub> = 2 × V<sub>eq1</sub>; V<sub>eq3</sub> = 3 × V<sub>eq1</sub> for triprotic.</li>
+        <li><b>Then locate the point</b> in the table and use that region's formula. Between landmarks, use Henderson–Hasselbalch with the pK<sub>a</sub> of the pair that's present.</li>
+        <li><b>Visible jumps:</b> each equivalence point gives a clear jump only if its K<sub>a</sub> differs from the next by ~10<sup>3</sup>–10<sup>4</sup> and isn't too small. H<sub>3</sub>PO<sub>4</sub> shows two jumps; the third (K<sub>a3</sub> = 4.2 × 10<sup>−13</sup>) is invisible because HPO<sub>4</sub><sup>2−</sup> is barely more acidic than water.</li>
+      </ul>
+      <details class="worked"><summary>Worked example: 25.00 mL of 0.100 M H<sub>2</sub>A (K<sub>a1</sub> = 1.0 × 10<sup>−4</sup>, K<sub>a2</sub> = 1.0 × 10<sup>−8</sup>) titrated with 0.100 M NaOH</summary><div>
+        <p>mol H<sub>2</sub>A = 2.50 mmol → V<sub>eq1</sub> = 25.00 mL, V<sub>eq2</sub> = 50.00 mL.</p>
+        <div class="tbl"><table style="min-width:460px"><thead><tr><th>NaOH</th><th>Region</th><th>Calculation</th><th>pH</th></tr></thead><tbody>
+          <tr><td class="num">0</td><td>H<sub>2</sub>A</td><td>√(1.0×10⁻⁴ × 0.100) = 3.2×10⁻³ (3.1×10⁻³ by quadratic)</td><td class="num">2.51</td></tr>
+          <tr><td class="num">12.50</td><td>½ eq 1</td><td>pK<sub>a1</sub></td><td class="num">4.00</td></tr>
+          <tr><td class="num">25.00</td><td>eq 1 (HA⁻)</td><td>½(4.00 + 8.00)</td><td class="num">6.00</td></tr>
+          <tr><td class="num">37.50</td><td>½ eq 2</td><td>pK<sub>a2</sub></td><td class="num">8.00</td></tr>
+          <tr><td class="num">50.00</td><td>eq 2 (A²⁻)</td><td>[A²⁻] = 2.50/75.0 = 0.0333 M; K<sub>b</sub> = 1.0×10⁻⁶; [OH⁻] = 1.8×10⁻⁴</td><td class="num">10.26</td></tr>
+          <tr><td class="num">60.00</td><td>excess</td><td>1.00 mmol OH⁻ / 85.0 mL = 0.0118 M</td><td class="num">12.07</td></tr>
+        </tbody></table></div>
+      </div></details>
+      <p class="seeit"><span>See it</span><a href="#v-pt">Polyprotic titration curve</a><a href="#r-spec">Speciation lab</a></p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+      <p class="pic-lead">Picture a flask of H<sub>2</sub>A molecules, each holding two protons, as OH<sup>−</sup> drips in.</p>
+      <ol class="film">
+        <li><b>The first drops.</b> Each OH<sup>−</sup> could take a proton from H<sub>2</sub>A (neutral, loose grip) or from HA<sup>−</sup> (negative, tight grip). It takes the loosest proton, so it strips H<sub>2</sub>A. Like taking off a jacket before the shirt underneath.</li>
+        <li><b>First equivalence.</b> Every molecule is now HA<sup>−</sup>. Each one can still give a proton (acting as an acid) or take one back (acting as a base). Those two tendencies partly cancel, so the pH sits between the two pK<sub>a</sub>'s, at their average.</li>
+        <li><b>Second stage.</b> Only now does OH<sup>−</sup> start pulling the tightly held second proton off HA<sup>−</sup>. The flask becomes an HA<sup>−</sup>/A<sup>2−</sup> buffer around pK<sub>a2</sub>.</li>
+        <li><b>Second equivalence.</b> All A<sup>2−</sup>. It pulls protons off water (it's a fairly strong base because HA<sup>−</sup> holds its proton so tightly), so the solution is clearly basic.</li>
+      </ol>
+    </div>
+    <div class="k">Why</div>
+    <div class="v why">
+      <p>The protons come off in order because K<sub>a1</sub> ≫ K<sub>a2</sub> (Lesson 10): the first proton leaves a neutral molecule, the second leaves a negative ion. If the two K<sub>a</sub>'s are close (citric acid), OH<sup>−</sup> starts removing the second proton before the first set is finished, the regions overlap, and the separate jumps blur into one long slope. That's why citrate buffers over a wide range but gives poor separate end points.</p>
+    </div>
+  </div>
+  <div class="ph"><b>Public health link</b>Phosphate (H<sub>2</sub>PO<sub>4</sub><sup>−</sup>/HPO<sub>4</sub><sup>2−</sup>, pK<sub>a2</sub> = 7.21) is the main buffer inside cells and in urine, exactly because its middle pK<sub>a</sub> sits near physiological pH.</div>
+</article>
+
+<!-- 15 -->
+<article class="topic" id="d-fact" aria-labelledby="t15">
+  <header><span class="eyebrow">Lesson 15</span><h2 id="t15">Factors affecting solubility, and complex ions</h2></header>
+  <div class="wh">
+    <div class="k">What</div>
+    <div class="v">
+      <p>K<sub>sp</sub> is fixed at a given temperature, but the <i>amount</i> of salt that dissolves depends on what else is in the solution. To dissolve more, remove one of the salt's ions. To dissolve less, add one.</p>
+      <div class="tbl"><table>
+        <caption>Five factors</caption>
+        <thead><tr><th scope="col">Factor</th><th scope="col">Effect on solubility</th><th scope="col">Example</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Common ion</th><td>Decreases</td><td>AgCl in NaCl (Lesson 8)</td></tr>
+          <tr><th scope="row">pH (salt of a basic anion)</th><td>Increases as pH drops</td><td>CaCO<sub>3</sub>, Mg(OH)<sub>2</sub>, CaF<sub>2</sub>, ZnS dissolve in acid; AgCl does not</td></tr>
+          <tr><th scope="row">Complex-ion formation</th><td>Increases</td><td>AgCl in NH<sub>3</sub>; AgBr in S<sub>2</sub>O<sub>3</sub><sup>2−</sup></td></tr>
+          <tr><th scope="row">Amphoterism</th><td>Increases in strong acid <i>and</i> strong base</td><td>Al(OH)<sub>3</sub>, Zn(OH)<sub>2</sub>, Cr(OH)<sub>3</sub></td></tr>
+          <tr><th scope="row">Temperature</th><td>Usually increases (endothermic dissolving)</td><td>Exceptions: Ca(OH)<sub>2</sub>, CaCO<sub>3</sub> dissolve less in hot water</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>Complex ions.</b> A metal ion (Lewis acid) bonds to <b>ligands</b> (Lewis bases with lone pairs: NH<sub>3</sub>, CN<sup>−</sup>, OH<sup>−</sup>, S<sub>2</sub>O<sub>3</sub><sup>2−</sup>, Cl<sup>−</sup>, EDTA). The formation constant K<sub>f</sub> measures stability:</p>
+      <div class="eq">Ag<sup>+</sup> + 2NH<sub>3</sub> ⇌ Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> &nbsp;&nbsp; K<sub>f</sub> = [Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>]/([Ag<sup>+</sup>][NH<sub>3</sub>]<sup>2</sup>) = 1.7 × 10<sup>7</sup></div>
+      <div class="tbl"><table>
+        <caption>Some formation constants (25 °C)</caption>
+        <thead><tr><th scope="col">Complex</th><th scope="col">K<sub>f</sub></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup></th><td class="num">1.7 × 10<sup>7</sup></td></tr>
+          <tr><th scope="row">Cu(NH<sub>3</sub>)<sub>4</sub><sup>2+</sup> (deep blue)</th><td class="num">5 × 10<sup>12</sup></td></tr>
+          <tr><th scope="row">Ag(S<sub>2</sub>O<sub>3</sub>)<sub>2</sub><sup>3−</sup></th><td class="num">2.9 × 10<sup>13</sup></td></tr>
+          <tr><th scope="row">Zn(OH)<sub>4</sub><sup>2−</sup></th><td class="num">4.6 × 10<sup>17</sup></td></tr>
+          <tr><th scope="row">Ag(CN)<sub>2</sub><sup>−</sup></th><td class="num">1 × 10<sup>21</sup></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="k">How</div>
+    <div class="v">
+      <ul class="tight">
+        <li><b>Is the anion basic?</b> If it is the conjugate base of a weak acid (OH<sup>−</sup>, CO<sub>3</sub><sup>2−</sup>, F<sup>−</sup>, S<sup>2−</sup>, PO<sub>4</sub><sup>3−</sup>, CH<sub>3</sub>COO<sup>−</sup>), acid raises solubility. Cl<sup>−</sup>, Br<sup>−</sup>, I<sup>−</sup>, NO<sub>3</sub><sup>−</sup> are unaffected by pH; SO<sub>4</sub><sup>2−</sup> only slightly.</li>
+        <li><b>Free metal ion in excess ligand:</b> since K<sub>f</sub> is large, assume essentially all metal is complexed, then [M<sup>n+</sup>]<sub>free</sub> = [complex]/(K<sub>f</sub>[L]<sup>n</sup>).</li>
+        <li><b>Dissolving a precipitate with a ligand:</b> add the reactions, K = K<sub>sp</sub> × K<sub>f</sub> (problem set #9).</li>
+        <li><b>Amphoteric hydroxide:</b> in acid, M(OH)<sub>n</sub> + nH<sub>3</sub>O<sup>+</sup> → M<sup>n+</sup> + 2nH<sub>2</sub>O; in excess base, Al(OH)<sub>3</sub>(s) + OH<sup>−</sup> → Al(OH)<sub>4</sub><sup>−</sup>. It's least soluble at an intermediate pH.</li>
+      </ul>
+      <details class="worked"><summary>Worked example: 0.010 M AgNO<sub>3</sub> in 1.00 M NH<sub>3</sub>. Find free [Ag<sup>+</sup>]. Will AgCl precipitate if [Cl<sup>−</sup>] is made 0.010 M?</summary><div>
+        <p>K<sub>f</sub> is huge, so nearly all Ag<sup>+</sup> is complexed: [Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>] ≈ 0.010 M, using 0.020 M NH<sub>3</sub>, so [NH<sub>3</sub>] ≈ 0.98 M.</p>
+        <p>[Ag<sup>+</sup>] = 0.010/(1.7 × 10<sup>7</sup> × 0.98<sup>2</sup>) = <b>6.1 × 10<sup>−10</sup> M</b>. Only 1 Ag<sup>+</sup> in ~16 million is free.</p>
+        <p>Q = (6.1 × 10<sup>−10</sup>)(0.010) = 6.1 × 10<sup>−12</sup> &lt; K<sub>sp</sub>(AgCl) = 1.8 × 10<sup>−10</sup>. <b>No precipitate.</b> Without ammonia, Q would be 1.0 × 10<sup>−4</sup> and AgCl would precipitate immediately.</p>
+      </div></details>
+      <p class="seeit"><span>See it</span><a href="#v-ci">Common-ion effect</a><a href="#p-PS9">Problem set #9</a></p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+      <p class="pic-lead">Picture AgCl dissolving, then add ammonia.</p>
+      <ol class="film">
+        <li><b>Plain water.</b> Ag<sup>+</sup> that escapes the crystal is wrapped loosely by water molecules, O lone pairs pointing in. It soon meets a Cl<sup>−</sup> at the surface and sticks back on. Escape and return balance at only 1.3 × 10<sup>−5</sup> M.</li>
+        <li><b>Add NH<sub>3</sub>.</b> Nitrogen is less electronegative than oxygen, so it holds its lone pair less tightly and shares it more readily. NH<sub>3</sub> pushes the waters aside and two NH<sub>3</sub> bond to Ag<sup>+</sup> on opposite sides: H<sub>3</sub>N–Ag–NH<sub>3</sub><sup>+</sup>.</li>
+        <li><b>Silver in disguise.</b> A Cl<sup>−</sup> bumping into the complex finds the Ag<sup>+</sup> already wrapped. It can't form Ag–Cl, so the return step almost stops. The crystal keeps losing Ag<sup>+</sup> and Cl<sup>−</sup> until [Ag<sup>+</sup>]<sub>free</sub>[Cl<sup>−</sup>] is back down to K<sub>sp</sub>, by which point far more AgCl has dissolved.</li>
+        <li><b>Acid and Mg(OH)<sub>2</sub>.</b> Same idea with a different thief: each OH<sup>−</sup> that leaves the solid is grabbed by H<sub>3</sub>O<sup>+</sup> and turned into water. Cl<sup>−</sup> can't be stolen this way, because HCl is strong and Cl<sup>−</sup> has no pull on protons.</li>
+        <li><b>Amphoteric Al(OH)<sub>3</sub>.</b> Al<sup>3+</sup> is small and +3. In acid, its OH groups take protons and leave as water. In strong base, the Al still has room for one more lone pair, so an OH<sup>−</sup> bonds to it, giving soluble Al(OH)<sub>4</sub><sup>−</sup>. It can act as a Brønsted base and a Lewis acid.</li>
+      </ol>
+    </div>
+    <div class="k">Why</div>
+    <div class="v why">
+      <p>Every factor works through Q vs K<sub>sp</sub> (Le Châtelier). Adding an ion raises Q, so the solid stops dissolving sooner. Removing an ion (into water, a weak acid, or a complex) lowers Q, so more solid dissolves to restore Q = K<sub>sp</sub>. The constant never changes; only the route to it does. Temperature is the one factor that changes K<sub>sp</sub> itself: if dissolving absorbs heat, K<sub>sp</sub> rises with T. Ca(OH)<sub>2</sub> releases heat as it dissolves, so it is less soluble in hot water.</p>
+    </div>
+  </div>
+  <div class="ph"><b>Public health link</b>Tooth enamel is hydroxyapatite, Ca<sub>5</sub>(PO<sub>4</sub>)<sub>3</sub>OH. Acid from bacteria feeding on sugar removes OH<sup>−</sup> and PO<sub>4</sub><sup>3−</sup>, so enamel dissolves (caries). Fluoride swaps in to form fluorapatite, whose F<sup>−</sup> is a far weaker base than OH<sup>−</sup>, so it resists acid. That's the chemistry behind fluoridated toothpaste and the DOH school-based tooth-brushing programs.</div>
+</article>
+
+<!-- 16 -->
+<article class="topic" id="d-qual" aria-labelledby="t16">
+  <header><span class="eyebrow">Lesson 16</span><h2 id="t16">Precipitation of ions and qualitative analysis</h2></header>
+  <div class="wh">
+    <div class="k">What</div>
+    <div class="v">
+      <p><b>Precipitation of ions</b> uses Q vs K<sub>sp</sub> to decide whether a solid forms (Q &gt; K<sub>sp</sub>), and the threshold concentration of precipitant to separate ions (selective precipitation, Lesson 12). An ion is considered <b>completely precipitated</b> when ≤ 0.1% remains, or its concentration is ≤ ~10<sup>−5</sup> M.</p>
+      <p><b>Qualitative analysis</b> identifies which metal ions are in an unknown mixture by removing them in groups, each with a reagent that precipitates some ions and leaves the rest.</p>
+      <ol class="qa" aria-label="Qualitative analysis scheme">
+        <li><b>Group 1 · insoluble chlorides.</b> Add 6 M HCl. <span>AgCl, Hg<sub>2</sub>Cl<sub>2</sub>, PbCl<sub>2</sub> precipitate (white). PbCl<sub>2</sub> is fairly soluble, so some Pb<sup>2+</sup> carries over to group 2.</span></li>
+        <li><b>Group 2 · acid-insoluble sulfides.</b> Add H<sub>2</sub>S in ~0.3 M HCl (very low [S<sup>2−</sup>]). <span>Only the least soluble sulfides form: CuS, CdS, HgS, Bi<sub>2</sub>S<sub>3</sub>, SnS<sub>2</sub>, Sb<sub>2</sub>S<sub>3</sub>, PbS.</span></li>
+        <li><b>Group 3 · base-insoluble sulfides and hydroxides.</b> Make basic with NH<sub>3</sub>/NH<sub>4</sub><sup>+</sup> (pH ≈ 8–9), add H<sub>2</sub>S or (NH<sub>4</sub>)<sub>2</sub>S. <span>ZnS, MnS, NiS, CoS, FeS; Al(OH)<sub>3</sub>, Cr(OH)<sub>3</sub>.</span></li>
+        <li><b>Group 4 · insoluble phosphates (or carbonates).</b> Add (NH<sub>4</sub>)<sub>2</sub>HPO<sub>4</sub> in ammonia (some schemes use (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub>). <span>Mg<sup>2+</sup>, Ca<sup>2+</sup>, Sr<sup>2+</sup>, Ba<sup>2+</sup>.</span></li>
+        <li><b>Group 5 · what's left.</b> Alkali metal ions and NH<sub>4</sub><sup>+</sup>, which form almost no insoluble salts. <span>Identified by flame tests (Na<sup>+</sup> yellow, K<sup>+</sup> violet) and, for NH<sub>4</sub><sup>+</sup>, adding NaOH to release NH<sub>3</sub> gas (turns red litmus blue).</span></li>
+      </ol>
+    </div>
+    <div class="k">How</div>
+    <div class="v">
+      <ul class="tight">
+        <li><b>Decide by Q vs K<sub>sp</sub>.</b> Mixing: dilute first, then Q (Lesson 12, figure 10).</li>
+        <li><b>Group 2 vs 3 is pH-controlled [S<sup>2−</sup>].</b> H<sub>2</sub>S ⇌ 2H<sup>+</sup> + S<sup>2−</sup>, overall K = K<sub>a1</sub>K<sub>a2</sub> ≈ 9.5 × 10<sup>−27</sup>. With saturated H<sub>2</sub>S (0.10 M): [S<sup>2−</sup>] = K<sub>a1</sub>K<sub>a2</sub>(0.10)/[H<sup>+</sup>]<sup>2</sup>.</li>
+        <li><b>Order matters.</b> Each group's reagent would also precipitate later groups' ions under the wrong conditions, so the groups must be removed in sequence, filtering or centrifuging after each.</li>
+      </ul>
+      <details class="worked"><summary>Worked example: why CuS precipitates in group 2 but ZnS waits for group 3 (0.010 M each; K<sub>sp</sub> CuS ≈ 6 × 10<sup>−37</sup>, ZnS ≈ 2 × 10<sup>−25</sup>)</summary><div>
+        <p><b>In 0.30 M H<sup>+</sup>:</b> [S<sup>2−</sup>] = 9.5 × 10<sup>−27</sup> × 0.10/(0.30)<sup>2</sup> = 1.1 × 10<sup>−26</sup> M. Q = 0.010 × 1.1 × 10<sup>−26</sup> = 1.1 × 10<sup>−28</sup>. CuS: Q ≫ 6 × 10<sup>−37</sup> → <b>precipitates</b>. ZnS: Q &lt; 2 × 10<sup>−25</sup> → <b>stays dissolved</b>.</p>
+        <p><b>At pH 9 (group 3):</b> [S<sup>2−</sup>] = 9.5 × 10<sup>−28</sup>/(10<sup>−9</sup>)<sup>2</sup> = 9.5 × 10<sup>−10</sup> M, about 10<sup>17</sup> times higher. Q(ZnS) = 9.5 × 10<sup>−12</sup> &gt; K<sub>sp</sub> → <b>now ZnS precipitates</b>.</p>
+      </div></details>
+      <details class="worked"><summary>Worked example: an unknown gives no precipitate with HCl, a black precipitate with H<sub>2</sub>S in acid, and nothing further in groups 3–4. A flame test is yellow. Which of Ag<sup>+</sup>, Cu<sup>2+</sup>, Zn<sup>2+</sup>, Ca<sup>2+</sup>, Na<sup>+</sup> are present?</summary><div>
+        <p>No group 1 precipitate → no Ag<sup>+</sup>. Group 2 black precipitate → Cu<sup>2+</sup> (CuS). Nothing in group 3 → no Zn<sup>2+</sup>. Nothing in group 4 → no Ca<sup>2+</sup>. Yellow flame → Na<sup>+</sup>. <b>Present: Cu<sup>2+</sup> and Na<sup>+</sup>.</b></p>
+      </div></details>
+      <p class="seeit"><span>See it</span><a href="#v-sp">Selective precipitation</a><a href="#v-qm">Q vs K<sub>sp</sub> map</a></p>
+    </div>
+    <div class="k">Picture it</div>
+    <div class="v pic">
+      <p class="pic-lead">Picture sulfide ions as bait, and the pH as the dial that sets how much bait is in the water.</p>
+      <ol class="film">
+        <li><b>Strong acid (group 2).</b> The solution swarms with H<sub>3</sub>O<sup>+</sup>. Almost every S<sup>2−</sup> or HS<sup>−</sup> that forms is grabbed and turned back into H<sub>2</sub>S. Free S<sup>2−</sup> is vanishingly rare, about 10<sup>−26</sup> M.</li>
+        <li><b>Who bites.</b> Cu<sup>2+</sup> and Hg<sup>2+</sup> bond so strongly to sulfide (very small K<sub>sp</sub>) that even these rare encounters exceed K<sub>sp</sub>, so CuS crystals grow. Zn<sup>2+</sup> also meets the occasional S<sup>2−</sup>, but ZnS is soluble enough that the pair falls apart again.</li>
+        <li><b>Turn the dial (group 3).</b> Adding ammonia removes the H<sub>3</sub>O<sup>+</sup>. H<sub>2</sub>S now loses its protons and free S<sup>2−</sup> rises by a factor of ~10<sup>17</sup>. Now Zn<sup>2+</sup>, Ni<sup>2+</sup>, Co<sup>2+</sup> meet sulfide often enough to precipitate.</li>
+        <li><b>Group 5.</b> Na<sup>+</sup> and K<sup>+</sup> are large, singly charged and well hydrated. They attract anions weakly and form no insoluble salts with any of these reagents, so they are left at the end.</li>
+      </ol>
+    </div>
+    <div class="k">Why</div>
+    <div class="v why">
+      <p>Qualitative analysis is selective precipitation run in sequence. Each step chooses a reagent and a pH so that Q exceeds K<sub>sp</sub> for one group of cations but not the others. Sulfide is the key reagent because its concentration can be tuned over 17 orders of magnitude just by changing pH (it is the conjugate base of a very weak acid), and metal sulfide K<sub>sp</sub> values are spread over a huge range.</p>
+    </div>
+  </div>
+  <div class="check"><h4>Check yourself</h4>
+    <details><summary>Why must group 1 (HCl) come before group 2 (H<sub>2</sub>S)?</summary><p>H<sub>2</sub>S in acid would also precipitate Ag<sup>+</sup> (Ag<sub>2</sub>S) and Pb<sup>2+</sup> (PbS) along with the group 2 ions, mixing the groups. Removing the chlorides first keeps each group's precipitate to its own ions.</p></details>
+  </div>
+</article>
+
 
     </div>
   </div>
@@ -1186,6 +1597,8 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <tr><th scope="row">Polyprotic acid</th><td>H<sub>2</sub>A, H<sub>3</sub>A with K<sub>a1</sub> ≫ K<sub>a2</sub></td><td>pH from step 1 only; [A<sup>2−</sup>] ≈ K<sub>a2</sub> when no other acid is present</td><td>H<sub>2</sub>S, H<sub>3</sub>PO<sub>4</sub>, H<sub>2</sub>CO<sub>3</sub></td></tr>
         <tr><th scope="row">Titration analysis (find a sample's concentration)</th><td>"aliquot", "diluted to", "endpoint required … mL"</td><td>mol titrant → mol analyte (× mole ratio) → concentration → × dilution factor(s)</td><td><a href="#p-PS5">#5</a></td></tr>
         <tr><th scope="row">Titration curve point</th><td>"after adding x mL of base"</td><td>Find the region first: start (weak acid), buffer (H–H), equivalence (conjugate hydrolysis), past equivalence (excess strong)</td><td>See Lesson 11 and figure 7</td></tr>
+        <tr><th scope="row">Polyprotic titration point</th><td>"diprotic", two equivalence points</td><td>V<sub>eq2</sub> = 2V<sub>eq1</sub>; ½-eq points → pK<sub>a1</sub>, pK<sub>a2</sub>; eq 1 → ½(pK<sub>a1</sub> + pK<sub>a2</sub>); eq 2 → weak base K<sub>w</sub>/K<sub>a2</sub></td><td>Lesson 14, figure 11</td></tr>
+        <tr><th scope="row">Free metal ion with a ligand</th><td>Metal salt + excess NH<sub>3</sub>, CN<sup>−</sup>; K<sub>f</sub> given</td><td>Assume all complexed; [M]<sub>free</sub> = [complex]/(K<sub>f</sub>[L]<sup>n</sup>), [L] reduced by n × [M]<sub>total</sub></td><td>Lesson 15</td></tr>
         <tr><th scope="row">Sparingly soluble salt in water</th><td>"K<sub>sp</sub>", "molar solubility", "g/L"</td><td>Write K<sub>sp</sub> with exponents; s from s<sup>2</sup>, 4s<sup>3</sup>, 27s<sup>4</sup>, 108s<sup>5</sup></td><td><a href="#p-PS7">#7a</a>, <a href="#p-PS8">#8a</a></td></tr>
         <tr><th scope="row">Sparingly soluble salt + common ion</th><td>A soluble salt sharing an ion is present</td><td>Put the common ion's concentration in K<sub>sp</sub>; s ≈ K<sub>sp</sub>/[common]<sup>n</sup></td><td><a href="#p-PS7">#7b</a></td></tr>
         <tr><th scope="row">Salt with a basic anion at fixed pH</th><td>Hydroxide, carbonate, fluoride + "buffered at pH …"</td><td>pH fixes [OH<sup>−</sup>] (or [H<sub>3</sub>O<sup>+</sup>]); s = K<sub>sp</sub>/[OH<sup>−</sup>]<sup>n</sup>. Don't write 2s for OH<sup>−</sup>.</td><td><a href="#p-PS8">#8b</a></td></tr>
@@ -1243,6 +1656,19 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p><b>Steps.</b> (1) V<sub>eq</sub> from moles. (2) Which region? 0 mL → weak acid alone; before V<sub>eq</sub> → buffer (H–H with mmol); exactly V<sub>eq</sub> → conjugate base alone (K<sub>b</sub> = K<sub>w</sub>/K<sub>a</sub>, total volume!); after V<sub>eq</sub> → excess OH<sup>−</sup> ÷ total volume.</p>
         <p class="note"><b>Traps</b>Assuming pH 7 at equivalence for a weak acid; forgetting added volume at equivalence; using H–H at 0 mL (no A<sup>−</sup> yet) or at equivalence (no HA left).</p>
         <p class="ph"><b>Check</b>Half-equivalence pH = pK<sub>a</sub>. Weak acid/strong base equivalence &gt; 7; weak base/strong acid &lt; 7.</p>
+      </div></details>
+      <details class="worked"><summary>Choosing an indicator</summary><div>
+        <p><b>Steps.</b> (1) Classify the titration (strong/weak acid, strong/weak base). (2) Estimate the equivalence pH (7, &gt; 7, &lt; 7). (3) Pick the indicator whose range (pK<sub>In</sub> ± 1) lies on the steep part of the curve around that pH.</p>
+        <p class="note"><b>Traps</b>Choosing by "the indicator range contains 7" for a weak acid; forgetting the curve falls for a base titrated with acid; using a lot of indicator.</p>
+        <p class="ph"><b>Check</b>Weak acid + strong base → phenolphthalein. Weak base + strong acid → methyl red. Strong + strong → almost any of methyl red, bromothymol blue, phenolphthalein.</p>
+      </div></details>
+      <details class="worked"><summary>Titration of a polyprotic acid</summary><div>
+        <p><b>Steps.</b> (1) V<sub>eq1</sub> from moles; V<sub>eq2</sub> = 2V<sub>eq1</sub>. (2) Locate the point: start, ½-eq 1, eq 1, ½-eq 2, eq 2, past eq 2. (3) Use the matching formula: weak acid (K<sub>a1</sub>); pK<sub>a1</sub>; ½(pK<sub>a1</sub> + pK<sub>a2</sub>); pK<sub>a2</sub>; weak base with K<sub>b</sub> = K<sub>w</sub>/K<sub>a2</sub> in the total volume; excess OH<sup>−</sup>.</p>
+        <p class="note"><b>Traps</b>Using K<sub>w</sub>/K<sub>a1</sub> at the second equivalence point (the base there is A<sup>2−</sup>, whose partner acid is HA<sup>−</sup>, so use K<sub>a2</sub>); putting pH = pK<sub>a1</sub> at the first equivalence point (that's the half-point).</p>
+      </div></details>
+      <details class="worked"><summary>Qualitative analysis and precipitation of ions</summary><div>
+        <p><b>Steps.</b> (1) Read observations group by group: HCl precipitate → Ag<sup>+</sup>/Pb<sup>2+</sup>/Hg<sub>2</sub><sup>2+</sup>; H<sub>2</sub>S in acid → CuS etc.; basic sulfide/hydroxide → Zn, Ni, Co, Fe, Mn, Al, Cr; phosphate/carbonate → alkaline earths; flame → Na/K. (2) "No precipitate" rules out that group. (3) For numbers: [S<sup>2−</sup>] = K<sub>a1</sub>K<sub>a2</sub>[H<sub>2</sub>S]/[H<sup>+</sup>]<sup>2</sup>, then Q vs K<sub>sp</sub>.</p>
+        <p class="note"><b>Traps</b>Forgetting that [H<sup>+</sup>] is squared; thinking a later group's ion would precipitate in an earlier group; treating PbCl<sub>2</sub> as fully removed in group 1.</p>
       </div></details>
       <details class="worked"><summary>Polyprotic acids</summary><div>
         <p><b>Steps.</b> (1) Treat as monoprotic using K<sub>a1</sub> for pH. (2) [HA<sup>−</sup>] ≈ [H<sub>3</sub>O<sup>+</sup>]. (3) [A<sup>2−</sup>] ≈ K<sub>a2</sub> (only when no other acid/base is present).</p>
@@ -1525,7 +1951,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
   <div class="flow">
     <span class="eyebrow">Visualize &amp; correlate</span>
     <h1 id="h-viz">Watch equilibrium happen</h1>
-    <p class="lede">Ten figures that show what the K expressions are describing: ions in a beaker, a buffer absorbing acid, a titration curve split into its four regions, ions precipitating one after another. Two are data analyses that test shortcuts you use on exams. The "See it" links at the end of each lesson bring you here.</p>
+    <p class="lede">Twelve figures that show what the K expressions are describing: ions in a beaker, a buffer absorbing acid, a titration curve split into its four regions, a diprotic acid losing one proton at a time, an indicator's color band on a titration curve, ions precipitating one after another. Two are data analyses that test shortcuts you use on exams. The "See it" links at the end of each lesson bring you here.</p>
   </div>
 
   <section class="bench" aria-labelledby="v-chain">
@@ -1709,6 +2135,40 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
     <p class="why" id="qmM" aria-live="polite"></p>
   </section>
 
+  <!-- V11 polyprotic titration -->
+  <section class="bench" aria-labelledby="v-pt">
+    <div class="bench-head"><h2 id="v-pt">11 · Titrating a polyprotic acid: one proton at a time</h2><span class="hint">Lesson 14 · 25.0 mL of 0.100 M acid + 0.100 M NaOH</span></div>
+    <p style="max-width:68ch">Each proton gets its own buffer region and its own equivalence point. Whether you can <i>see</i> a separate jump depends on how far apart the K<sub>a</sub> values are, and whether the last one is big enough to beat water. The bar under the curve shows which species fill the flask at the chosen volume.</p>
+    <div class="controls">
+      <label class="ctl" for="ptA">Acid<select id="ptA"><option value="0" selected>H₂A model (pKₐ 4.00, 8.00)</option><option value="1">Carbonic acid H₂CO₃ (6.35, 10.33)</option><option value="2">Oxalic acid H₂C₂O₄ (1.25, 4.27)</option><option value="3">Phosphoric acid H₃PO₄ (2.15, 7.20, 12.35)</option><option value="4">Citric acid H₃Cit (3.13, 4.76, 6.40)</option></select></label>
+      <label class="ctl" for="ptV"><span>NaOH added <output id="ptVO">12.5</output> mL</span><input type="range" id="ptV" min="0" max="90" step="0.25" value="12.5"></label>
+    </div>
+    <div class="cwrap"><svg class="chart" id="ptS" viewBox="0 0 640 362" role="img" aria-labelledby="ptT ptD"><title id="ptT">Titration curve of a polyprotic acid with species fractions</title><desc id="ptD">pH against volume of sodium hydroxide, with dashed vertical lines at each equivalence volume and open circles at each half-equivalence point where pH equals a pKa. A stacked bar below shows the fraction of each protonation state at the chosen volume.</desc></svg></div>
+    <div class="readout" aria-live="polite">
+      <div class="ro"><b id="ptP">4.00</b><span>pH (exact)</span></div>
+      <div class="ro"><b id="ptR">½ eq 1</b><span>where you are</span></div>
+      <div class="ro"><b id="ptM">H₂A / HA⁻</b><span>main species</span></div>
+    </div>
+    <p class="why" id="ptW" aria-live="polite"></p>
+  </section>
+
+  <!-- V12 indicator choice -->
+  <section class="bench" aria-labelledby="v-in">
+    <div class="bench-head"><h2 id="v-in">12 · Choosing an indicator</h2><span class="hint">Lesson 13 · does the color change on the steep part?</span></div>
+    <p style="max-width:68ch">The shaded band is the indicator's color-change range. It gives a good end point only if the curve crosses the band while it is nearly vertical, right at the equivalence volume. Try methyl red on acetic acid, then phenolphthalein.</p>
+    <div class="controls">
+      <label class="ctl" for="inT">Titration<select id="inT"><option value="0">0.100 M HCl + NaOH (strong + strong)</option><option value="1" selected>0.100 M CH₃COOH + NaOH (weak acid)</option><option value="2">0.100 M HOCl + NaOH (very weak acid, pKₐ 7.52)</option><option value="3">0.100 M NH₃ + HCl (weak base)</option></select></label>
+      <label class="ctl" for="inI">Indicator<select id="inI"><option value="0">Methyl orange (3.1–4.4)</option><option value="1">Bromocresol green (3.8–5.4)</option><option value="2" selected>Methyl red (4.2–6.3)</option><option value="3">Bromothymol blue (6.0–7.6)</option><option value="4">Phenol red (6.8–8.4)</option><option value="5">Phenolphthalein (8.2–10.0)</option><option value="6">Thymolphthalein (9.4–10.6)</option></select></label>
+    </div>
+    <div class="cwrap"><svg class="chart" id="inS" viewBox="0 0 640 320" role="img" aria-labelledby="inTT inD"><title id="inTT">Titration curve with an indicator's color-change band</title><desc id="inD">pH against titrant volume with a horizontal shaded band for the chosen indicator's range, a dashed line at the equivalence volume, and a marker where the color change happens.</desc></svg></div>
+    <div class="readout" aria-live="polite">
+      <div class="ro"><b id="inE">8.72</b><span>pH at equivalence</span></div>
+      <div class="ro"><b id="inV">24.3 mL</b><span>color change at</span></div>
+      <div class="ro"><b id="inX">−2.7%</b><span>titration error</span></div>
+    </div>
+    <p class="why" id="inM" aria-live="polite"></p>
+  </section>
+
   <p class="hint">Figure ideas adapted and redrawn from Silberberg &amp; Amateis, <i>Chemistry: The Molecular Nature of Matter and Change</i>, 7th ed. (strong vs weak acid molecular scenes, conjugate pair strengths, buffer capacity, common-ion effect). Constants from your handouts and standard tables at 25 °C.</p>
 </section>
 
@@ -1736,9 +2196,9 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 <!-- ============ QUIZ ============ -->
 <section class="view flow-lg" id="view-quiz" aria-labelledby="h-quiz" hidden>
   <div class="flow">
-    <span class="eyebrow">Quiz · 190 items</span>
+    <span class="eyebrow">Quiz · 219 items</span>
     <h1 id="h-quiz">Test yourself</h1>
-    <p class="lede">Conceptual multiple choice, problem-solving multiple choice, identification (type the term), and 53 comparative-analysis items in the Column I vs Column II format, including problem-set-style items on buffers, salts, titration analysis and solubility. Every explanation says what the answer is and why it's right. Keep a calculator and scratch paper nearby for the solving items.</p>
+    <p class="lede">Conceptual multiple choice, problem-solving multiple choice, identification (type the term), and 59 comparative-analysis items in the Column I vs Column II format, including problem-set-style items on buffers, salts, titration analysis and solubility. Every explanation says what the answer is and why it's right. Keep a calculator and scratch paper nearby for the solving items.</p>
   </div>
   <div class="qtop">
     <div class="row">
@@ -1818,7 +2278,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 <script>
 // ---------- QUIZ DATA ----------
 // t: c = conceptual MC, s = solving MC, i = identification. k = topic key. a = correct index (MC) or accepted answers (i).
-const TOPICS={def:"Definitions",water:"Water & pH",strong:"Strong acids/bases",weak:"Weak acids",wbase:"Weak bases",struct:"Structure & strength",salts:"Salts",common:"Common-ion effect",buffer:"Buffers",poly:"Polyprotic acids",titr:"Titrations",ksp:"Solubility & Ksp"};
+const TOPICS={def:"Definitions",water:"Water & pH",strong:"Strong acids/bases",weak:"Weak acids",wbase:"Weak bases",struct:"Structure & strength",salts:"Salts",common:"Common-ion effect",buffer:"Buffers",poly:"Polyprotic acids",titr:"Titrations",ksp:"Solubility & Ksp",ind:"Indicators & polyprotic titration",fact:"Solubility factors & complexes",qual:"Precipitation & qual analysis"};
 const C=(k,q,o,a,e)=>({t:"c",k,q,o,a,e}), S=(k,q,o,a,e)=>({t:"s",k,q,o,a,e}), I=(k,q,a,show,e)=>({t:"i",k,q,a,show,e}),
  XO=["Column I is greater","Column I is less","The two are equal","Cannot be determined"],
  X=(k,ctx,c1,c2,a,e)=>({t:"a",k,fix:1,o:XO,a,e,q:'<div class="cmpq"><div class="ctx">'+ctx+'</div><div class="cols"><div><span>Column I</span>'+c1+'</div><div><span>Column II</span>'+c2+'</div></div></div>'});
@@ -2020,7 +2480,37 @@ X("ksp","AgCl at 25 °C, with and without ammonia.","K<sub>sp</sub> of AgCl in 0
 X("ksp","A solution 0.20 M in both Ba<sup>2+</sup> and Ca<sup>2+</sup> (K<sub>sp</sub>: BaSO<sub>4</sub> 1.1 × 10<sup>−10</sup>, CaSO<sub>4</sub> 2.4 × 10<sup>−5</sup>).","[SO<sub>4</sub><sup>2−</sup>] needed to begin precipitating BaSO<sub>4</sub>","[SO<sub>4</sub><sup>2−</sup>] needed to begin precipitating CaSO<sub>4</sub>",1,"<b>B.</b> 5.5 × 10<sup>−10</sup> M vs 1.2 × 10<sup>−4</sup> M. The less soluble salt reaches Q = K<sub>sp</sub> at a much lower sulfate level, so it comes out first."),
 X("ksp","PbI<sub>2</sub> (K<sub>sp</sub> 9.8 × 10<sup>−9</sup>).","Molar solubility in 0.10 M KI","Molar solubility in 0.10 M Pb(NO<sub>3</sub>)<sub>2</sub>",1,"<b>B.</b> 9.8 × 10<sup>−7</sup> M vs 1.6 × 10<sup>−4</sup> M. I<sup>−</sup> enters K<sub>sp</sub> squared, so the same 0.10 M of common ion suppresses solubility far more when it's iodide."),
 X("ksp","Salt AB has K<sub>sp</sub> = 1.0 × 10<sup>−10</sup>; salt AB<sub>2</sub> has K<sub>sp</sub> = 1.0 × 10<sup>−12</sup>. Both in pure water.","Molar solubility of AB","Molar solubility of AB<sub>2</sub>",1,"<b>B.</b> AB: s = √K<sub>sp</sub> = 1.0 × 10<sup>−5</sup> M. AB<sub>2</sub>: s = (K<sub>sp</sub>/4)<sup>1/3</sup> = 6.3 × 10<sup>−5</sup> M. With different formula types, the smaller K<sub>sp</sub> can belong to the more soluble salt."),
-X("weak","Two weak acids: HX (K<sub>a</sub> 1.0 × 10<sup>−5</sup>) and HY (K<sub>a</sub> 1.0 × 10<sup>−4</sup>). Their concentrations are not given.","pH of the HX solution","pH of the HY solution",3,"<b>D.</b> pH depends on both K<sub>a</sub> and C. HY is the stronger acid, but a concentrated HX solution could still be more acidic than a very dilute HY solution. Without concentrations, the comparison can go either way.")
+X("weak","Two weak acids: HX (K<sub>a</sub> 1.0 × 10<sup>−5</sup>) and HY (K<sub>a</sub> 1.0 × 10<sup>−4</sup>). Their concentrations are not given.","pH of the HX solution","pH of the HY solution",3,"<b>D.</b> pH depends on both K<sub>a</sub> and C. HY is the stronger acid, but a concentrated HX solution could still be more acidic than a very dilute HY solution. Without concentrations, the comparison can go either way."),
+// --- JoVE topics: indicators, polyprotic titration, buffer effectiveness, solubility factors, complex ions, qualitative analysis ---
+C("water","Why does K<sub>w</sub> increase when water is heated?",["Autoionization is endothermic: breaking an O–H bond and separating charges absorbs energy, so heat shifts it right","Hot water contains dissolved acids from the air","Heating makes water a stronger base than acid","H<sub>3</sub>O<sup>+</sup> evaporates faster than OH<sup>−</sup>"],0,"<b>ΔH° ≈ +56 kJ/mol.</b> At higher T, more collisions carry enough energy to complete the proton transfer and pull the ions apart. Le Châtelier: heat acts as a reactant. Both ions rise equally, so hot water is still neutral even though pH &lt; 7."),
+C("water","In pure water at 25 °C, roughly what fraction of water molecules are ionized at any instant?",["About 2 in a billion","About 1 in 100","About 1 in 14","Exactly half"],0,"<b>1.0 × 10<sup>−7</sup> M of each ion out of 55.5 M water ≈ 1.8 × 10<sup>−9</sup></b>, about 2 in a billion. Most proton hops snap straight back because the new + and − ions attract each other."),
+C("weak","On a molecular level, why does diluting a weak acid increase its percent ionization?",["Recombination needs H<sub>3</sub>O<sup>+</sup> and A<sup>−</sup> to meet, which happens less often when they are farther apart; ionization needs only water, which is always nearby","Water molecules become more basic when diluted","K<sub>a</sub> increases with dilution","Dilution breaks hydrogen bonds in HA"],0,"<b>Encounter rates.</b> The reverse reaction depends on two dilute species finding each other; the forward one depends on HA meeting water (always present). Dilution slows the reverse more, so a bigger fraction stays ionized. K<sub>a</sub> itself is unchanged."),
+C("buffer","Two acetate buffers both have pH 4.74. Buffer A is 0.50 M in each component; buffer B is 0.050 M in each. Which statement is correct?",["A has ten times the capacity of B","B has ten times the capacity of A","They have equal capacity because they have the same pH","A has a wider pH range than B"],0,"<b>Capacity scales with the amounts present</b>, not the ratio. A can absorb about ten times more acid or base for the same pH change. Their range (pK<sub>a</sub> ± 1) is the same."),
+C("buffer","A buffer is made with [A<sup>−</sup>]/[HA] = 10 (pH = pK<sub>a</sub> + 1). What is true of its effectiveness?",["It resists added acid well but added base poorly","It resists added base well but added acid poorly","It resists both equally","It is not a buffer at all"],0,"<b>Its HA reservoir is small.</b> Added acid is met by plentiful A<sup>−</sup>; added base must react with the little HA there is, which runs out quickly. A 1 : 1 ratio gives the most balanced capacity."),
+C("ind","An indicator HIn has pK<sub>In</sub> = 5.0. At pH 4.0, what is [In<sup>−</sup>]/[HIn], and which color dominates?",["0.1; the acid (HIn) color","10; the base (In<sup>−</sup>) color","1; an even mixture","0.01; the base color"],0,"<b>[In<sup>−</sup>]/[HIn] = K<sub>In</sub>/[H<sub>3</sub>O<sup>+</sup>] = 10<sup>−5</sup>/10<sup>−4</sup> = 0.1.</b> One unit below pK<sub>In</sub>, the acid form is 10× more abundant: the edge of the color-change range."),
+C("ind","Why is phenolphthalein colorless in acid but pink in base?",["Removing protons opens a ring and makes the central carbon planar, creating one long conjugated system that absorbs green light","OH<sup>−</sup> ions themselves are pink","Acid destroys the phenolphthalein molecule","In base the molecule absorbs all visible light except pink by fluorescence"],0,"<b>Structure change → conjugation → color.</b> In acid, an sp<sup>3</sup> carbon separates the rings, so the molecule absorbs only UV. Deprotonation flattens the center and links the three rings into one delocalized system that absorbs ~550 nm (green); we see the complementary magenta."),
+C("ind","Why is methyl red a poor indicator for titrating acetic acid with NaOH?",["It changes color around pH 4.2–6.3, well before the equivalence pH of about 8.7","It reacts with acetate ions","It is too strong an acid","Its color change is too sharp"],0,"<b>Its range is in the buffer region.</b> pH 6.3 is reached when ~97% of the acid is neutralized, so the color changes about 3% (≈ 0.7 mL in 25 mL) too early. Phenolphthalein (8.2–10.0) sits on the steep part."),
+S("ind","Which indicator is best for titrating 0.10 M NH<sub>3</sub> with 0.10 M HCl (equivalence pH ≈ 5.3)?",["Methyl red (4.2–6.3)","Phenolphthalein (8.2–10.0)","Thymolphthalein (9.4–10.6)","Phenol red (6.8–8.4)"],0,"<b>Methyl red.</b> Weak base + strong acid gives an acidic equivalence point; methyl red's range brackets pH 5.3 on the steep part of the curve. Phenolphthalein would lose its color in the buffer region, far too early."),
+C("ind","Why should only 2–3 drops of indicator be used in a titration?",["The indicator is itself a weak acid and consumes titrant; a small amount keeps that error negligible","More indicator makes the color change at a different pK<sub>In</sub>","Indicators are toxic in large amounts","More drops would make the solution a buffer that hides the end point"],0,"<b>The indicator reacts with titrant too.</b> Kept tiny, it reports the pH without changing it measurably."),
+C("ind","For a diprotic acid H<sub>2</sub>A titrated with NaOH, what is the pH at the first equivalence point?",["About ½(pK<sub>a1</sub> + pK<sub>a2</sub>)","pK<sub>a1</sub>","pK<sub>a2</sub>","7.00"],0,"<b>Only HA<sup>−</sup> is present.</b> It is amphiprotic: it can lose a proton (K<sub>a2</sub>) or gain one (K<sub>b</sub> = K<sub>w</sub>/K<sub>a1</sub>). The two tendencies balance at pH ≈ ½(pK<sub>a1</sub> + pK<sub>a2</sub>). pK<sub>a1</sub> is the pH at the first <i>half</i>-equivalence point."),
+C("ind","Why does H<sub>3</sub>PO<sub>4</sub> show only two equivalence-point jumps when titrated with NaOH, not three?",["K<sub>a3</sub> (≈ 4 × 10<sup>−13</sup>) is so small that HPO<sub>4</sub><sup>2−</sup> is barely more acidic than water, so there's no sharp rise","The third proton is removed before the second","Phosphate precipitates with sodium","NaOH cannot remove a third proton from any acid"],0,"<b>A jump needs a proton that OH<sup>−</sup> removes sharply.</b> At pH ~12 the solution already contains comparable excess OH<sup>−</sup>, so the third equivalence point blends into the curve."),
+S("ind","25.0 mL of 0.100 M H<sub>2</sub>A is titrated with 0.100 M NaOH. What volume reaches the second equivalence point?",["50.0 mL","25.0 mL","12.5 mL","37.5 mL"],0,"<b>50.0 mL.</b> 2.50 mmol H<sub>2</sub>A needs 2.50 mmol OH<sup>−</sup> per proton: 25.0 mL for the first, another 25.0 mL for the second. 37.5 mL is the second half-equivalence point (pH = pK<sub>a2</sub>)."),
+S("ind","H<sub>3</sub>PO<sub>4</sub> has pK<sub>a1</sub> = 2.15, pK<sub>a2</sub> = 7.20, pK<sub>a3</sub> = 12.35. What is the approximate pH at the <i>second</i> equivalence point?",["9.78","4.68","7.20","12.35"],0,"<b>9.78.</b> At the second equivalence point everything is HPO<sub>4</sub><sup>2−</sup>, amphiprotic between pK<sub>a2</sub> and pK<sub>a3</sub>: ½(7.20 + 12.35) = 9.78. 4.68 is the first equivalence point; phenolphthalein suits the second, methyl orange or bromocresol green the first."),
+X("ind","25.0 mL of 0.100 M diprotic H<sub>2</sub>A (pK<sub>a1</sub> 4.00, pK<sub>a2</sub> 8.00) is titrated with 0.100 M NaOH.","pH at 12.5 mL NaOH added","pK<sub>a1</sub>",2,"<b>C.</b> At the first half-equivalence point [H<sub>2</sub>A] = [HA<sup>−</sup>], so pH = pK<sub>a1</sub> = 4.00."),
+X("ind","Titrations of 0.10 M acid with 0.10 M NaOH.","pH at equivalence for CH<sub>3</sub>COOH (pK<sub>a</sub> 4.74)","pH at equivalence for HOCl (pK<sub>a</sub> 7.52)",1,"<b>B.</b> The weaker the acid, the stronger its conjugate base, so the equivalence point is more basic (≈ 8.7 vs ≈ 10.1). The jump is also shorter for the weaker acid."),
+X("ind","Titration curves for 0.10 M acids with 0.10 M NaOH.","Size of the pH jump at equivalence for HCl","Size of the pH jump at equivalence for CH<sub>3</sub>COOH",0,"<b>A.</b> HCl's curve starts lower (pH 1) and its jump spans about pH 4–10. Acetic acid's buffer region holds the pH up near 5–7 before equivalence, so its jump (≈ 7–11) is shorter."),
+C("fact","Which of these would NOT increase the molar solubility of Mg(OH)<sub>2</sub>?",["Adding NaOH","Adding HCl","Adding NH<sub>4</sub>Cl","Lowering the pH with a buffer"],0,"<b>NaOH adds OH<sup>−</sup>, a common ion</b>, which lowers solubility. HCl, NH<sub>4</sub><sup>+</sup> (a weak acid) and a lower-pH buffer all remove OH<sup>−</sup> and pull the dissolution forward."),
+C("fact","Al(OH)<sub>3</sub> dissolves in both 1 M HCl and 1 M NaOH. What is this property called, and why does it dissolve in base?",["Amphoterism; Al<sup>3+</sup> accepts another OH<sup>−</sup> as a Lewis acid, forming soluble Al(OH)<sub>4</sub><sup>−</sup>","Common-ion effect; OH<sup>−</sup> raises K<sub>sp</sub>","Hydrolysis; NaOH makes Al<sup>3+</sup> less charged","Leveling; NaOH converts it to a strong acid"],0,"<b>Amphoteric hydroxide.</b> In acid its OH groups take protons (it acts as a base). In excess base the small, highly charged Al<sup>3+</sup> bonds one more OH<sup>−</sup>, forming a soluble complex. It is least soluble at intermediate pH."),
+C("fact","Why does NH<sub>3</sub> displace water molecules bonded to Ag<sup>+</sup>?",["N is less electronegative than O, so it shares its lone pair more readily and forms a stronger bond to Ag<sup>+</sup>","NH<sub>3</sub> is an acid that protonates Ag<sup>+</sup>","Water cannot bond to metal ions","NH<sub>3</sub> reduces Ag<sup>+</sup> to Ag metal"],0,"<b>Better Lewis base.</b> Nitrogen holds its lone pair less tightly than oxygen, so it donates it more strongly to the metal. Two NH<sub>3</sub> form the linear Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> (K<sub>f</sub> 1.7 × 10<sup>7</sup>)."),
+S("fact","A solution is 0.010 M in Cu<sup>2+</sup> and 1.00 M in NH<sub>3</sub>. K<sub>f</sub> of Cu(NH<sub>3</sub>)<sub>4</sub><sup>2+</sup> = 5 × 10<sup>12</sup>. What is the free [Cu<sup>2+</sup>]?",["2.4 × 10<sup>−15</sup> M","2.0 × 10<sup>−15</sup> M","2.0 × 10<sup>−9</sup> M","0.010 M"],0,"<b>2.4 × 10<sup>−15</sup> M.</b> Nearly all copper is complexed (0.010 M), using 0.040 M NH<sub>3</sub>, leaving 0.96 M. [Cu<sup>2+</sup>] = 0.010/(5 × 10<sup>12</sup> × 0.96<sup>4</sup>). 2.0 × 10<sup>−15</sup> forgets that NH<sub>3</sub> was consumed."),
+X("fact","Two silver salts in 1.0 M NH<sub>3</sub> (K<sub>f</sub> 1.7 × 10<sup>7</sup>). K<sub>sp</sub>: AgCl 1.8 × 10<sup>−10</sup>, AgI 8.3 × 10<sup>−17</sup>.","Molar solubility of AgCl","Molar solubility of AgI",0,"<b>A.</b> K = K<sub>sp</sub>K<sub>f</sub>: 3.1 × 10<sup>−3</sup> for AgCl vs 1.4 × 10<sup>−9</sup> for AgI. Ammonia dissolves AgCl (≈ 0.05 M) but barely touches AgI. This difference is used to separate them."),
+X("fact","CaCO<sub>3</sub> and AgCl are each shaken with dilute HNO<sub>3</sub>.","Increase in solubility of CaCO<sub>3</sub> (relative to water)","Increase in solubility of AgCl (relative to water)",0,"<b>A.</b> CO<sub>3</sub><sup>2−</sup> is a basic anion: acid converts it to HCO<sub>3</sub><sup>−</sup>, H<sub>2</sub>CO<sub>3</sub> and CO<sub>2</sub>, so CaCO<sub>3</sub> dissolves. Cl<sup>−</sup> is the conjugate base of a strong acid and isn't removed, so AgCl's solubility is essentially unchanged."),
+C("qual","In qualitative analysis, why is group 2 (H<sub>2</sub>S) done in about 0.3 M HCl?",["High [H<sup>+</sup>] keeps [S<sup>2−</sup>] extremely low, so only the least soluble sulfides precipitate","Acid makes the sulfides more soluble so nothing precipitates","HCl removes group 3 ions as chlorides","Acid is needed to make H<sub>2</sub>S gas dissolve"],0,"<b>[S<sup>2−</sup>] = K<sub>a1</sub>K<sub>a2</sub>[H<sub>2</sub>S]/[H<sup>+</sup>]<sup>2</sup>.</b> At 0.3 M H<sup>+</sup> it is ~10<sup>−26</sup> M. Only sulfides with tiny K<sub>sp</sub> (CuS, HgS, CdS) exceed it; ZnS, NiS, CoS wait until the solution is made basic in group 3."),
+S("qual","Saturated H<sub>2</sub>S is 0.10 M; K<sub>a1</sub>K<sub>a2</sub> = 9.5 × 10<sup>−27</sup>. What is [S<sup>2−</sup>] at pH 1.00?",["9.5 × 10<sup>−26</sup> M","9.5 × 10<sup>−27</sup> M","9.5 × 10<sup>−28</sup> M","9.5 × 10<sup>−25</sup> M"],0,"<b>9.5 × 10<sup>−26</sup> M</b> = 9.5 × 10<sup>−27</sup> × 0.10/(0.10)<sup>2</sup>. Raising the pH by one unit raises [S<sup>2−</sup>] 100-fold, because [H<sup>+</sup>] is squared."),
+C("qual","A mixture gives a white precipitate with 6 M HCl. Which ions could be responsible?",["Ag<sup>+</sup>, Pb<sup>2+</sup>, Hg<sub>2</sub><sup>2+</sup>","Cu<sup>2+</sup>, Cd<sup>2+</sup>, Bi<sup>3+</sup>","Ca<sup>2+</sup>, Ba<sup>2+</sup>, Mg<sup>2+</sup>","Na<sup>+</sup>, K<sup>+</sup>, NH<sub>4</sub><sup>+</sup>"],0,"<b>Group 1: insoluble chlorides.</b> AgCl, PbCl<sub>2</sub> and Hg<sub>2</sub>Cl<sub>2</sub> are the common chlorides that don't dissolve. Nearly every other chloride is soluble."),
+C("qual","Why are Na<sup>+</sup> and K<sup>+</sup> left until the last group and identified by flame tests?",["They form almost no insoluble salts with the group reagents, so they never precipitate","They precipitate in group 1 with chloride","They are removed by H<sub>2</sub>S in acid","They react with phosphate in group 4"],0,"<b>Large, singly charged, strongly hydrated ions</b> attract anions weakly, so their chlorides, sulfides, hydroxides, carbonates and phosphates are all soluble. Flame color (Na yellow, K violet) is the practical test."),
+C("qual","Why must group 1 (HCl) come before group 2 (H<sub>2</sub>S)?",["H<sub>2</sub>S would also precipitate Ag<sup>+</sup> and Pb<sup>2+</sup> as sulfides, mixing them into group 2","HCl destroys H<sub>2</sub>S","Group 2 ions dissolve in HCl","It doesn't matter; the order can be reversed"],0,"<b>Each reagent precipitates more than its own group if earlier ions are still present.</b> Removing the chlorides first keeps Ag<sup>+</sup> and most Pb<sup>2+</sup> out of the sulfide precipitate."),
+X("qual","0.010 M Cu<sup>2+</sup> and 0.010 M Zn<sup>2+</sup> in a solution saturated with H<sub>2</sub>S. K<sub>sp</sub>: CuS ≈ 6 × 10<sup>−37</sup>, ZnS ≈ 2 × 10<sup>−25</sup>.","Minimum pH at which ZnS precipitates","Minimum pH at which CuS precipitates",0,"<b>A.</b> [S<sup>2−</sup>] = 9.5 × 10<sup>−28</sup>/[H<sup>+</sup>]<sup>2</sup>. ZnS needs [S<sup>2−</sup>] ≥ 2 × 10<sup>−23</sup> M, reached only above pH ≈ 2.2. CuS needs only 6 × 10<sup>−35</sup> M, which is exceeded even in strong acid. Group 2 runs at 0.3 M HCl (pH ≈ 0.5) to stay below the ZnS threshold.")
 ];
 
 // ---------- PAST QUIZ + HANDOUT PROBLEMS ----------
@@ -2831,7 +3321,66 @@ document.querySelectorAll("[data-qm]").forEach(b=>b.onclick=()=>{qmK=+b.dataset.
 ["qmC","qmA"].forEach(i=>$(i).addEventListener("input",drawQM));
 spReset();
 
-function drawViz(){drawION();drawLAD();drawBC();drawCI();drawKS();drawPC();drawTA();drawAL();drawSP();drawQM()}
+// V11 polyprotic titration
+const PTA=[
+ {pk:[4.00,8.00],sp:["H₂A","HA⁻","A²⁻"],note:"With pKₐ values 4 units apart, OH⁻ finishes the first proton before touching the second. You get two clean buffer plateaus and two clear jumps, and the first equivalence pH is the average of the two pKₐ's (6.00)."},
+ {pk:[6.35,10.33],sp:["H₂CO₃","HCO₃⁻","CO₃²⁻"],note:"The first jump (near pH 8.3, phenolphthalein) is clear. The second is weak: CO₃²⁻ is a fairly strong base (K_b = K_w/K_a2 = 2.1×10⁻⁴), so at the second equivalence the pH is already close to that of excess NaOH and the curve hardly steepens."},
+ {pk:[1.25,4.27],sp:["H₂C₂O₄","HC₂O₄⁻","C₂O₄²⁻"],note:"pKₐ1 is so low that oxalic acid's first proton behaves almost like a strong acid, and the two pKₐ's are only 3 units apart. The first equivalence point barely shows. In practice oxalic acid is titrated to the second equivalence point (50 mL) as a diprotic acid."},
+ {pk:[2.15,7.20,12.35],sp:["H₃PO₄","H₂PO₄⁻","HPO₄²⁻","PO₄³⁻"],note:"Two clear jumps (near pH 4.7 and 9.8). The third never appears: K_a3 ≈ 4×10⁻¹³ is so small that HPO₄²⁻ is barely more acidic than water, so 75 mL of NaOH just adds excess OH⁻ with no sharp rise."},
+ {pk:[3.13,4.76,6.40],sp:["H₃Cit","H₂Cit⁻","HCit²⁻","Cit³⁻"],note:"The three pKₐ's are within 1.6 units of each other, so OH⁻ starts removing the next proton before the previous set is finished. The buffer regions overlap into one long slope and only the last equivalence point (75 mL) shows. That's why citrate buffers over a wide pH range."}];
+function ptAlpha(pk,h){const n=pk.length,t=[1];for(let j=1;j<=n;j++)t.push(t[j-1]*10**(-pk[j-1])/h);const s=t.reduce((a,b)=>a+b,0);return t.map(x=>x/s)}
+function ptPH(pk,V){const Vt=25+V,CT=0.1*25/Vt,Na=0.1*V/Vt;return -bisect(l=>{const h=10**l,a=ptAlpha(pk,h);let nb=0;a.forEach((x,j)=>nb+=j*x);return h+Na-CT*nb-KW/h},-14.5,1)}
+function drawPT(){const svg=$("ptS");if(!svg)return;clearSvg(svg);const d=PTA[+$("ptA").value],n=d.pk.length,xM=25*n+15,sl=$("ptV");if(+sl.max!==xM){sl.max=xM;if(+sl.value>xM)sl.value=xM}const V=+sl.value;$("ptVO").textContent=V.toFixed(2).replace(/0$/,"");
+ const a=vAx(svg,{L:46,R:622,T:22,B:262,xm:0,xM,ym:0,yM:14,xs:xM>70?10:5,ys:2,xl:"NaOH added (mL)",yl:"pH"}),X=a.X,Y=a.Y;
+ for(let j=1;j<=n;j++){svg.appendChild(el("line",{x1:X(25*j),x2:X(25*j),y1:Y(14),y2:Y(0),stroke:"var(--muted)","stroke-dasharray":"4 4"}));axisText(svg,X(25*j),Y(14)+12,"eq "+j,{"text-anchor":"middle",fill:"var(--muted)","font-size":12})}
+ const pts=[];for(let i=0;i<=420;i++){const v=xM*i/420;pts.push([v,ptPH(d.pk,v)])}svg.appendChild(el("path",{d:pathOf(pts,X,Y),class:"curve"}));
+ d.pk.forEach((p,j)=>{const v=25*j+12.5;svg.appendChild(el("circle",{cx:X(v),cy:Y(ptPH(d.pk,v)),r:5,fill:"var(--bg)",stroke:"var(--fg)","stroke-width":2}));axisText(svg,X(v)+7,Y(ptPH(d.pk,v))+15,"pKₐ"+(j+1),{"font-size":12})});
+ const pH=ptPH(d.pk,V);svg.appendChild(el("circle",{cx:X(V),cy:Y(pH),r:7,fill:phColor(pH),stroke:"var(--fg)","stroke-width":2}));
+ // species bar
+ const al=ptAlpha(d.pk,10**-pH),cols=["var(--hot)","var(--warn)","var(--cold)","var(--violet)"];let x0=46;const W=576;
+ axisText(svg,46,318,"Species at this volume:",{"font-size":12,fill:"var(--muted)"});
+ al.forEach((f,j)=>{const w=W*f;if(w<0.5)return;svg.appendChild(el("rect",{x:x0,y:326,width:w,height:26,fill:cols[j]}));if(w>60)axisText(svg,x0+w/2,344,d.sp[j]+" "+Math.round(f*100)+"%",{"text-anchor":"middle","font-size":13,style:"fill:#fff;font-weight:700"});x0+=w});
+ const k=V/25;let reg;const fi=Math.floor(k+1e-9);
+ if(k<0.02)reg="start";else if(Math.abs(k-Math.round(k))<0.02&&Math.round(k)<=n)reg="eq "+Math.round(k);else if(k>n)reg="excess OH⁻";else if(Math.abs(k-fi-0.5)<0.02)reg="½ eq "+(fi+1);else reg="buffer "+(fi+1);
+ const mi=al.indexOf(Math.max(...al)),sec=al.map((f,j)=>[f,j]).sort((p,q)=>q[0]-p[0])[1];
+ $("ptP").textContent=pH.toFixed(2);$("ptR").textContent=reg;$("ptM").textContent=sec[0]>0.2?d.sp[Math.min(mi,sec[1])]+" / "+d.sp[Math.max(mi,sec[1])]:d.sp[mi];
+ let w="";if(reg.startsWith("½"))w="<b>Half-equivalence:</b> equal amounts of "+d.sp[fi]+" and "+d.sp[fi+1]+", so pH ≈ pKₐ"+(fi+1)+" = "+d.pk[fi].toFixed(2)+". ";
+ else if(reg.startsWith("eq")){const j=Math.round(k);w=j<n?"<b>Equivalence "+j+":</b> nearly everything is "+d.sp[j]+", which is amphiprotic, so pH ≈ ½(pKₐ"+j+" + pKₐ"+(j+1)+") = "+((d.pk[j-1]+d.pk[j])/2).toFixed(2)+". ":"<b>Final equivalence:</b> everything is "+d.sp[n]+", a weak base, so the pH is above 7. ";}
+ else if(reg.startsWith("buffer"))w="<b>Buffer region "+(fi+1)+":</b> OH⁻ is converting "+d.sp[fi]+" into "+d.sp[fi+1]+"; use Henderson–Hasselbalch with pKₐ"+(fi+1)+". ";
+ else if(reg==="start")w="<b>Start:</b> only "+d.sp[0]+"; treat it as a monoprotic weak acid with Kₐ1. ";
+ else w="<b>Past the last equivalence point:</b> excess OH⁻ controls the pH. ";
+ $("ptW").innerHTML=w+d.note}
+["ptA","ptV"].forEach(i=>$(i).addEventListener("input",drawPT));
+
+// V12 indicators
+const INDS=[["Methyl orange",3.1,4.4,"#d7301f","#f2b81f"],["Bromocresol green",3.8,5.4,"#e8c51f","#2b6cb0"],["Methyl red",4.2,6.3,"#d7301f","#f2c12e"],["Bromothymol blue",6.0,7.6,"#e8c51f","#2b6cb0"],["Phenol red",6.8,8.4,"#e8c51f","#d6304a"],["Phenolphthalein",8.2,10.0,"#f4f4f4","#e0218a"],["Thymolphthalein",9.4,10.6,"#f4f4f4","#2b6cb0"]];
+const INT=[{nm:"HCl + NaOH",ti:"NaOH"},{nm:"CH₃COOH + NaOH",Ka:1.8e-5,ti:"NaOH"},{nm:"HOCl + NaOH",Ka:3.0e-8,ti:"NaOH"},{nm:"NH₃ + HCl",Kb:1.8e-5,ti:"HCl"}];
+function inPH(t,V){const Vt=25+V,C0=0.1*25/Vt,Ct=0.1*V/Vt;
+ if(t===0)return -bisect(l=>{const h=10**l;return h+Ct-C0-KW/h},-14.5,1);
+ if(t<3){const Ka=INT[t].Ka;return -bisect(l=>{const h=10**l;return h+Ct-C0*Ka/(Ka+h)-KW/h},-14.5,1)}
+ const Ka=KW/INT[3].Kb;return -bisect(l=>{const h=10**l;return h+C0*h/(h+Ka)-Ct-KW/h},-14.5,1)}
+function inCross(t,p){const f=v=>inPH(t,v)-p,a=f(0),b=f(50);if((a>0)===(b>0))return null;return bisect(f,0,50,60)}
+function drawIN(){const svg=$("inS");if(!svg)return;clearSvg(svg);const t=+$("inT").value,I=INDS[+$("inI").value],[nm,lo,hi,ca,cb]=I,mid=(lo+hi)/2;
+ const a=vAx(svg,{L:46,R:622,T:22,B:270,xm:0,xM:50,ym:0,yM:14,xs:5,ys:2,xl:INT[t].ti+" added (mL)",yl:"pH"}),X=a.X,Y=a.Y;
+ const defs=el("defs",{}),g=el("linearGradient",{id:"inGrad",x1:0,y1:1,x2:0,y2:0});g.appendChild(el("stop",{offset:"0%","stop-color":ca}));g.appendChild(el("stop",{offset:"100%","stop-color":cb}));defs.appendChild(g);svg.appendChild(defs);
+ svg.appendChild(el("rect",{x:X(0),y:Y(hi),width:X(50)-X(0),height:Y(lo)-Y(hi),fill:"url(#inGrad)",opacity:0.55}));
+ axisText(svg,X(50)-6,Y(hi)-5,nm+" "+lo+"–"+hi,{"text-anchor":"end","font-weight":"700","font-size":12});
+ svg.appendChild(el("line",{x1:X(25),x2:X(25),y1:Y(14),y2:Y(0),stroke:"var(--muted)","stroke-dasharray":"4 4"}));axisText(svg,X(25)+5,Y(0.5),"equivalence",{fill:"var(--muted)","font-size":12});
+ const pts=[];for(let i=0;i<=400;i++){const v=50*i/400;pts.push([v,inPH(t,v)])}svg.appendChild(el("path",{d:pathOf(pts,X,Y),class:"curve"}));
+ const pe=inPH(t,25);svg.appendChild(el("circle",{cx:X(25),cy:Y(pe),r:5,fill:"var(--bg)",stroke:"var(--fg)","stroke-width":2}));
+ const vm=inCross(t,mid),v1=inCross(t,lo),v2=inCross(t,hi);$("inE").textContent=pe.toFixed(2);
+ if(vm==null){$("inV").textContent="never";$("inX").textContent="—";$("inM").innerHTML="<b>No end point.</b> The curve never passes through the middle of "+nm+"'s range ("+mid.toFixed(1)+") in this titration, so the color never fully changes at the right time. Choose an indicator whose range sits on the steep part around pH "+pe.toFixed(1)+".";return}
+ svg.appendChild(el("circle",{cx:X(vm),cy:Y(mid),r:7,fill:"url(#inGrad)",stroke:"var(--fg)","stroke-width":2}));
+ const err=(vm-25)/25*100,span=(v1!=null&&v2!=null)?Math.abs(v2-v1):null;$("inV").textContent=vm.toFixed(2)+" mL";$("inX").textContent=(err>0?"+":err<0?"−":"")+Math.abs(err).toFixed(Math.abs(err)<1?2:1)+"%";
+ let m;const ae=Math.abs(err);
+ if(ae<=0.2&&(span==null||span<0.3))m="<b>Excellent choice.</b> The color changes within about a drop of equivalence ("+(span!=null?"over "+span.toFixed(2)+" mL":"sharply")+"), because the curve is nearly vertical as it crosses the band.";
+ else if(ae<=1)m="<b>Acceptable.</b> The end point is within 1% of equivalence, but an indicator centered nearer pH "+pe.toFixed(1)+" would be sharper.";
+ else m="<b>Poor choice.</b> The color changes "+(err<0?"before":"after")+" equivalence by "+Math.abs(vm-25).toFixed(2)+" mL ("+ae.toFixed(1)+"% error)"+(span!=null&&span>1?", and gradually, over "+span.toFixed(1)+" mL":"")+". Equivalence is at pH "+pe.toFixed(2)+", outside this indicator's range.";
+ if(t===2)m+=" Notice how short the jump is for a very weak acid (pKₐ 7.52): the steep part is only a couple of pH units, so even a well-matched indicator gives a less sharp end point.";
+ if(t===0)m+=" Strong + strong has a huge jump (≈ pH 4 to 10), so several indicators work.";
+ $("inM").innerHTML=m}
+["inT","inI"].forEach(i=>$(i).addEventListener("input",drawIN));
+function drawViz(){drawION();drawLAD();drawBC();drawCI();drawKS();drawPC();drawTA();drawAL();drawSP();drawQM();drawPT();drawIN()}
 
 renderPast();
 // ---------- DRILL: generated practice ----------
@@ -3044,6 +3593,31 @@ T.push({id:"cx",name:"Dissolving a precipitate with a complexing ligand (K = K<s
  return{q:"Calculate the molar solubility of "+d.p+" (K<sub>sp</sub> = "+k2(d.K)+") in "+L0+" M "+l.L+". K<sub>f</sub> of "+l.c+" = "+k2(l.K)+".",ans:s,unit:"M",tol:.03,
   steps:["Add the two equilibria: "+d.p+"(s) ⇌ Ag<sup>+</sup> + "+d.an+" and Ag<sup>+</sup> + 2L ⇌ "+l.c+" → "+d.p+"(s) + 2L ⇌ "+l.c+" + "+d.an+".","K = K<sub>sp</sub> × K<sub>f</sub> = "+k2(d.K)+" × "+k2(l.K)+" = "+kf(K)+".","ICE: ["+l.c+"] = ["+d.an+"] = s; [L] = "+L0+" − 2s. So K = s<sup>2</sup>/("+L0+" − 2s)<sup>2</sup>.","Square root: √K = "+kf(r)+" = s/("+L0+" − 2s) → s = "+L0+" × "+kf(r)+"/(1 + 2 × "+kf(r)+") = <b>"+kf(s)+" M</b>.","In pure water s = √K<sub>sp</sub> = "+kf(sw)+" M, so the ligand raises solubility about "+kf(s/sw)+"-fold."+(K>1?" K &gt; 1, so the ligand is nearly used up: s approaches "+L0+"/2.":"")],
   why:"The ligand removes Ag<sup>+</sup> into a stable complex, so Q for the solid stays below K<sub>sp</sub> while more dissolves (Le Châtelier). Added reactions multiply their constants. The perfect-square form lets you solve without a quadratic."}}});
+// 23 polyprotic titration landmarks
+const DPA=[{a:"H<sub>2</sub>CO<sub>3</sub>",p:[6.35,10.33]},{a:"H<sub>2</sub>SO<sub>3</sub>",p:[1.85,7.20]},{a:"H<sub>2</sub>A (model acid)",p:[4.00,8.00]},{a:"malonic acid, H<sub>2</sub>C<sub>3</sub>H<sub>2</sub>O<sub>4</sub>",p:[2.83,5.69]},{a:"H<sub>2</sub>S",p:[7.02,12.9]},{a:"tartaric acid, H<sub>2</sub>C<sub>4</sub>H<sub>4</sub>O<sub>6</sub>",p:[3.04,4.37]}];
+T.push({id:"pt",name:"Titration of a diprotic acid: pH at the landmarks",like:"Lesson 14 · polyprotic titration",topic:"Titrations",gen(){
+ const d=pick(DPA.filter(z=>z.p[1]-z.p[0]>=2.5&&z.p[1]<12)),Ca=pick([0.100,0.0500,0.200]),Va=pick([20.0,25.0,40.0,50.0]),Cb=pick([0.100,0.200]),V1=Ca*Va/Cb,K1=10**-d.p[0],K2=10**-d.p[1];
+ const pt=pick(["v0","h1","e1","h2","e2","ex","vol"]);const st=["mmol H<sub>2</sub>A = "+Ca+" × "+Va.toFixed(1)+" = "+(Ca*Va).toFixed(2)+". V<sub>eq1</sub> = "+V1.toFixed(2)+" mL; V<sub>eq2</sub> = "+(2*V1).toFixed(2)+" mL."];
+ const q0=Va.toFixed(1)+" mL of "+Ca+" M "+d.a+" (pK<sub>a1</sub> = "+d.p[0].toFixed(2)+", pK<sub>a2</sub> = "+d.p[1].toFixed(2)+") is titrated with "+Cb+" M NaOH. ";
+ if(pt==="vol"){const which=pick([1,2]);st.push("Each proton needs one OH<sup>−</sup> per H<sub>2</sub>A, so V<sub>eq"+which+"</sub> = "+which+" × "+V1.toFixed(2)+" = <b>"+(which*V1).toFixed(2)+" mL</b>.");
+  return{q:q0+"What volume of NaOH reaches the "+(which===1?"first":"second")+" equivalence point?",ans:which*V1,unit:"mL",tol:.005,steps:st,why:"Equivalence volumes are pure stoichiometry: mol acid × number of protons removed ÷ M of base. Acid strength only changes the pH there."}}
+ let v,Vb;
+ if(pt==="v0"){Vb=0;const x=quadX(K1,Ca);v=P(x);st.push("Start: only H<sub>2</sub>A. Ignore K<sub>a2</sub> (it's ~10<sup>"+Math.round(d.p[0]-d.p[1])+"</sup> times smaller).","x<sup>2</sup>/("+Ca+" − x) = "+k2(K1)+" → x = "+kf(x)+" M"+(x/Ca>0.05?" (quadratic needed: "+(x/Ca*100).toFixed(1)+"% ionized)":"")+".","<b>pH = "+f(v,2)+"</b>.")}
+ else if(pt==="h1"){Vb=V1/2;v=d.p[0];st.push("At "+Vb.toFixed(2)+" mL, half the H<sub>2</sub>A has become HA<sup>−</sup>: [H<sub>2</sub>A] = [HA<sup>−</sup>].","Henderson–Hasselbalch with pK<sub>a1</sub>: <b>pH = "+f(v,2)+"</b>.")}
+ else if(pt==="e1"){Vb=V1;v=(d.p[0]+d.p[1])/2;st.push("At V<sub>eq1</sub> everything is HA<sup>−</sup>, which is amphiprotic (it can lose a proton or gain one).","pH ≈ ½(pK<sub>a1</sub> + pK<sub>a2</sub>) = ½("+d.p[0].toFixed(2)+" + "+d.p[1].toFixed(2)+") = <b>"+f(v,2)+"</b>.")}
+ else if(pt==="h2"){Vb=1.5*V1;v=d.p[1];st.push("At 1.5 × V<sub>eq1</sub> = "+Vb.toFixed(2)+" mL, half the HA<sup>−</sup> has become A<sup>2−</sup>.","Henderson–Hasselbalch with pK<sub>a2</sub>: <b>pH = "+f(v,2)+"</b>.")}
+ else if(pt==="e2"){Vb=2*V1;const Vt=Va+Vb,c=Ca*Va/Vt,Kb=Kw/K2,x=quadX(Kb,c);v=14-P(x);st.push("At V<sub>eq2</sub> everything is A<sup>2−</sup>: "+(Ca*Va).toFixed(2)+" mmol in "+Vt.toFixed(1)+" mL = "+kf(c)+" M.","A<sup>2−</sup> is a weak base: K<sub>b1</sub> = K<sub>w</sub>/K<sub>a2</sub> = "+kf(Kb)+". x = [OH<sup>−</sup>] = "+kf(x)+" M"+(x/c>0.05?" (quadratic)":"")+".","pOH = "+f(P(x),2)+" → <b>pH = "+f(v,2)+"</b>.")}
+ else{Vb=+(2*V1*rnd(1.1,1.4,0.05)).toFixed(2);const Vt=Va+Vb,ex=Cb*Vb-2*Ca*Va,c=ex/Vt;v=14-P(c);st.push("Past V<sub>eq2</sub>: excess OH<sup>−</sup> = "+(Cb*Vb).toFixed(2)+" − "+(2*Ca*Va).toFixed(2)+" = "+ex.toFixed(2)+" mmol in "+Vt.toFixed(2)+" mL = "+kf(c)+" M.","pOH = "+f(P(c),2)+" → <b>pH = "+f(v,2)+"</b>.")}
+ return Object.assign(ph(v),{q:q0+"Find the pH after "+(+Vb.toFixed(2))+" mL of NaOH has been added.",steps:st,why:"Locate the point relative to V<sub>eq1</sub> and V<sub>eq2</sub> first. Half-equivalence points give pK<sub>a1</sub> and pK<sub>a2</sub>; the first equivalence point (amphiprotic HA<sup>−</sup>) gives their average; the second equivalence point is a weak-base problem with K<sub>b</sub> = K<sub>w</sub>/K<sub>a2</sub>."})}});
+// 24 buffer capacity
+const BCA=[{a:"CH<sub>3</sub>COOH",b:"CH<sub>3</sub>COO<sup>−</sup>",pK:4.74},{a:"HCOOH",b:"HCOO<sup>−</sup>",pK:3.74},{a:"H<sub>2</sub>PO<sub>4</sub><sup>−</sup>",b:"HPO<sub>4</sub><sup>2−</sup>",pK:7.21},{a:"NH<sub>4</sub><sup>+</sup>",b:"NH<sub>3</sub>",pK:9.26},{a:"HF",b:"F<sup>−</sup>",pK:3.17}];
+T.push({id:"bc",name:"Buffer effectiveness: how much strong acid or base before the pH shifts",like:"Lesson 9 · buffer effectiveness",topic:"Buffers",gen(){
+ const d=pick(BCA),V=pick([0.250,0.500,1.00]),cA=pick([0.050,0.10,0.20,0.25,0.50]),cB=pick([0.050,0.10,0.20,0.25,0.50]),nA=cA*V,nB=cB*V,pH0=d.pK+lg(nB/nA),addAcid=Math.random()<0.5,dp=pick([0.50,1.00]);
+ const tgt=pH0+(addAcid?-dp:dp),R=10**(tgt-d.pK);let x,eq;
+ if(addAcid){x=(nB-R*nA)/(1+R);eq="("+nB.toFixed(4)+" − x)/("+nA.toFixed(4)+" + x) = "+kf(R)}else{x=(R*nA-nB)/(1+R);eq="("+nB.toFixed(4)+" + x)/("+nA.toFixed(4)+" − x) = "+kf(R)}
+ const st=["Starting moles: "+d.a+" = "+cA+" × "+V+" = "+nA.toFixed(4)+" mol; "+d.b+" = "+nB.toFixed(4)+" mol. Starting pH = "+d.pK.toFixed(2)+" + log("+nB.toFixed(4)+"/"+nA.toFixed(4)+") = "+f(pH0,2)+".","Target pH = "+f(tgt,2)+" → required ratio base/acid = 10<sup>("+f(tgt,2)+" − "+d.pK.toFixed(2)+")</sup> = "+kf(R)+".",(addAcid?"Added H<sub>3</sub>O<sup>+</sup> converts base → acid: ":"Added OH<sup>−</sup> converts acid → base: ")+eq+".","Solve: x = <b>"+kf(x)+" mol</b> "+(addAcid?"HCl":"NaOH")+"."];
+ return{q:"A buffer is made of "+V+" L containing "+cA+" M "+d.a+" and "+cB+" M "+d.b+" (pK<sub>a</sub> = "+d.pK.toFixed(2)+"). How many moles of "+(addAcid?"HCl":"NaOH")+" can be added before the pH "+(addAcid?"falls":"rises")+" by "+dp.toFixed(2)+" unit"+(dp===1?"":"s")+"? (Assume no volume change.)",ans:x,unit:"mol",tol:.02,steps:st,
+  why:"Capacity is a stoichiometry question with a Henderson–Hasselbalch target: find the ratio that gives the new pH, then the moles of strong acid or base that convert enough of one partner into the other. More of both components → more moles needed → higher capacity; a lopsided ratio leaves one partner small, so capacity in that direction is low."}}});
 // 20 Column I vs II
 const CQ=[
  ()=>{const [x,y]=[pick(WA),pick(WA)].sort((p,q)=>q.Ka-p.Ka);if(x===y)return CQ[1]();const sw=Math.random()<0.5;return{ctx:"Two weak acids, each 0.10 M: "+x.a+" (K<sub>a</sub> "+k2(x.Ka)+") and "+y.a+" (K<sub>a</sub> "+k2(y.Ka)+").",c1:"pH of "+(sw?y.a:x.a),c2:"pH of "+(sw?x.a:y.a),a:sw?0:1,why:"Larger K<sub>a</sub> → more H<sub>3</sub>O<sup>+</sup> → <i>lower</i> pH. Same concentration, so K<sub>a</sub> alone decides."}},
