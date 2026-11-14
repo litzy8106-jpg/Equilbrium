@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ionic Equilibria Lab</title>
-<meta name="description" content="Interactive CHEM 18 review of ionic equilibria built from the course handout: acid–base definitions, pH, weak acids and bases, salts, common-ion effect, buffers, titrations, solubility and complex ions, with simulators, ten figures, 16 lessons with molecular "Picture it" scenes, a solving-strategy guide, the problem set with multi-part checking, past quiz items, a 219-item quiz and an unlimited problem drill.">
+<meta name="description" content="Interactive CHEM 18 review of ionic equilibria built from the course handout: acid–base definitions, pH, weak acids and bases, salts, common-ion effect, buffers, titrations, solubility and complex ions, with simulators, ten figures, 16 lessons with molecular "Picture it" scenes, a solving-strategy guide, the problem set with multi-part checking, past quiz items, a 247-item quiz and an unlimited problem drill.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
@@ -233,7 +233,8 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 .pitem{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px}
 .pitem .src{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .pitem .src .tag{font-family:var(--ui);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
-.tag.pq{background:var(--accent-soft);color:var(--accent)} .tag.ps{background:var(--accent);color:var(--bg)}
+.tag.pq{background:var(--accent-soft);color:var(--accent)} .tag.ps{background:var(--accent);color:var(--bg)} .tag.ls{background:var(--ph14);color:#fff}
+.lsrc{display:inline-block;font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--ph14);color:#fff;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:2px}
 .parts{display:flex;flex-direction:column;gap:8px;align-items:stretch}
 .prow{display:grid;grid-template-columns:minmax(8em,15em) minmax(0,11em) minmax(0,3em) minmax(0,1fr);gap:8px 10px;align-items:center}
 .prow label{font-family:var(--ui);font-size:14.5px;font-weight:600}
@@ -288,7 +289,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <a href="#remember" data-view="remember">Remember</a>
       <a href="#visualize" data-view="visualize">Visualize</a>
       <a href="#past" data-view="past">Problems</a>
-      <a href="#quiz" data-view="quiz">Quiz · 219</a>
+      <a href="#quiz" data-view="quiz">Quiz · 247</a>
       <a href="#drill" data-view="drill">Drill ∞</a>
     </nav>
     <button class="theme" id="themeBtn" type="button" aria-label="Switch color theme">Theme: auto</button>
@@ -388,7 +389,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <a class="card pathcard" href="#remember"><span class="n">Step 3</span><h3>Remember</h3><p>Mnemonics, flashcards and five labs: pH scale, salt sorter, buffer bench, speciation and titration curves. The Visualize tab adds twelve figures, from the four regions of a titration curve and polyprotic titrations to indicator choice and selective precipitation.</p></a>
       <a class="card pathcard" href="#strategy"><span class="n">Step 4</span><h3>Strategy</h3><p>How to attack any question: a seven-step solving routine, a "what's in the beaker" table for choosing the method, checklists with traps for every problem type, and reasoning routines for conceptual and Column I vs II items.</p></a>
       <a class="card pathcard" href="#past"><span class="n">Step 5</span><h3>Problem set &amp; past quiz</h3><p>Your ten problem-set questions with plans, multi-part answer checking and traps, plus look-alike twins; the past quiz items, every handout example and "Try these!" exercise with a full solution.</p></a>
-      <a class="card pathcard" href="#quiz"><span class="n">Step 6</span><h3>Quiz</h3><p>219 items: conceptual and problem-solving multiple choice, identification, and 59 Column I vs II comparative items. The Drill tab generates unlimited problems in 24 types (pH, buffers and buffer capacity, titration regions, polyprotic titrations, K<sub>sp</sub>, selective precipitation, complex ions) with full solutions.</p></a>
+      <a class="card pathcard" href="#quiz"><span class="n">Step 6</span><h3>Quiz</h3><p>247 items: conceptual and problem-solving multiple choice, identification, and 69 Column I vs II comparative items, including your lecture-slide questions. The Drill tab generates unlimited problems in 25 types (vinegar-label titrations, pH, buffers and buffer capacity, titration regions, polyprotic titrations, K<sub>sp</sub>, selective precipitation, complex ions) with full solutions.</p></a>
     </div>
     <p class="hint">Constants are at 25 °C unless stated. Each problem states the constants it uses. Your Ionic Equilibria handout's table (HF 7.2 × 10⁻⁴, HOCl 3.5 × 10⁻⁸, HCN 6.2 × 10⁻¹⁰) differs slightly from Brown's textbook values used in some examples here (HF 6.8 × 10⁻⁴, HClO 3.0 × 10⁻⁸, HCN 4.9 × 10⁻¹⁰). The method is identical; always use the value your exam gives.</p>
   </section>
@@ -446,6 +447,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <div class="eq">NH<sub>3</sub> + H<sub>2</sub>O ⇌ NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup> &nbsp;&nbsp; pairs: NH<sub>4</sub><sup>+</sup>/NH<sub>3</sub> and H<sub>2</sub>O/OH<sup>−</sup></div>
       <p>Water acted as a base in the first reaction and as an acid in the second. Your handout calls water <b>amphoteric</b> (able to act as acid or base); the more specific term for doing it by proton transfer is <b>amphiprotic</b>. Other amphiprotic species include HCO<sub>3</sub><sup>−</sup>, H<sub>2</sub>PO<sub>4</sub><sup>−</sup>, HPO<sub>4</sub><sup>2−</sup> and HS<sup>−</sup>.</p>
       <p><b>At the molecular level</b> (your handout's orbital pictures): the δ<sup>+</sup> H of HCl is drawn toward a lone pair on water's δ<sup>−</sup> O. The H–Cl bond breaks with both electrons staying on Cl, and the bare H<sup>+</sup> bonds to the O lone pair to form H<sub>3</sub>O<sup>+</sup>. With NH<sub>3</sub> the roles swap: N's lone pair pulls an H<sup>+</sup> off water, leaving OH<sup>−</sup>. In Lewis terms, water's O (or ammonia's N) is the electron-pair donor.</p>
+    </div>
+    <div class="k">Spot it</div>
+    <div class="v">
+      <p><b>Three exam patterns from this lesson</b> (lecture slides 6, 8, 9, 10):</p>
+      <ol class="tight">
+        <li><b>Match the definition to the theory.</b> "Produces H<sub>3</sub>O<sup>+</sup>/OH<sup>−</sup> in water" = Arrhenius. "Donates/accepts a proton" = Brønsted–Lowry. "Accepts/donates an electron pair" = Lewis (acid accepts, base donates).</li>
+        <li><b>Conjugate pairs differ by exactly one H<sup>+</sup>.</b> Same atoms otherwise, charge differs by 1. Test: add or remove one H and one + charge; if you can't get from one to the other that way, it isn't a pair. HCO<sub>3</sub><sup>−</sup>/CO<sub>2</sub>, H<sub>2</sub>SO<sub>4</sub>/H<sub>2</sub>SO<sub>3</sub>, H<sup>+</sup>/H<sup>−</sup> all fail.</li>
+        <li><b>Can it be a Brønsted base?</b> It needs a lone pair that can hold a proton: anions, N with a lone pair (NH<sub>3</sub>, amines), O with lone pairs (H<sub>2</sub>O, CH<sub>3</sub>OH). Metal cations (Ba<sup>2+</sup>) and species whose lone pair is already used (NH<sub>4</sub><sup>+</sup>) can't. <b>Can it be both?</b> It needs a lone pair <i>and</i> a removable H: H<sub>2</sub>O, HCO<sub>3</sub><sup>−</sup>, H<sub>2</sub>PO<sub>4</sub><sup>−</sup>, HPO<sub>4</sub><sup>2−</sup>, HS<sup>−</sup>; plus amphoteric hydroxides like Zn(OH)<sub>2</sub>. The fully stripped anion (PO<sub>4</sub><sup>3−</sup>, CO<sub>3</sub><sup>2−</sup>) can only be a base.</li>
+      </ol>
+      <p class="seeit"><span>Quiz</span><a href="#quiz">Conceptual items</a></p>
     </div>
     <div class="k">Picture it</div>
     <div class="v pic">
@@ -868,6 +879,27 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       </div></details>
       <p class="seeit"><span>See it</span><a href="#v-al">Why pK<sub>a</sub> ± 1</a><a href="#v-bc">Buffer vs water</a></p>
     </div>
+    <div class="k">Spot it</div>
+    <div class="v">
+      <p><b>"Which mixture forms a buffer?"</b> (lecture slide 7). Work in mmol and react first:</p>
+      <ol class="tight">
+        <li>Convert each to mmol (M × mL).</li>
+        <li>Let any strong acid or base react completely with whatever it can.</li>
+        <li>Look at what's left. A buffer needs <b>a weak acid and its conjugate base</b> (or weak base and conjugate acid), <b>both present in significant amounts</b>.</li>
+      </ol>
+      <div class="tbl"><table>
+        <thead><tr><th scope="col">Mixture type</th><th scope="col">After reaction</th><th scope="col">Buffer?</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Weak acid + its salt</th><td>HA + A<sup>−</sup></td><td>Yes</td></tr>
+          <tr><th scope="row">Weak acid + strong base, base &lt; acid (e.g. 2 : 1)</th><td>Leftover HA + A<sup>−</sup> formed</td><td>Yes (half → pH = pK<sub>a</sub>)</td></tr>
+          <tr><th scope="row">Weak base + strong acid, acid &lt; base</th><td>Leftover B + BH<sup>+</sup> formed</td><td>Yes</td></tr>
+          <tr><th scope="row">Weak acid + strong base, equal mol</th><td>Only A<sup>−</sup></td><td>No (equivalence point)</td></tr>
+          <tr><th scope="row">Weak acid + excess strong base</th><td>A<sup>−</sup> + OH<sup>−</sup></td><td>No</td></tr>
+          <tr><th scope="row">Strong acid + weak acid</th><td>Two acids, no conjugate base</td><td>No</td></tr>
+          <tr><th scope="row">Strong acid + its salt (HCl + NaCl)</th><td>Cl<sup>−</sup> is too weak a base</td><td>No</td></tr>
+        </tbody>
+      </table></div>
+    </div>
     <div class="k">Picture it</div>
     <div class="v pic">
 <p class="pic-lead">Picture a buffer as a crowd of two kinds of "goalkeepers": CH<sub>3</sub>COOH (holding a proton) and CH<sub>3</sub>COO<sup>−</sup> (ready to catch one), in similar numbers.</p>
@@ -994,6 +1026,18 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       </div></details>
       <p><b>Polyprotic titrations</b> show one equivalence point per proton (if the K<sub>a</sub> values are far enough apart). H<sub>3</sub>PO<sub>4</sub> shows two clear jumps; the third is too weak to see in water. At the first half-equivalence point pH = pK<sub>a1</sub>; at the second, pH = pK<sub>a2</sub>.</p>
     </div>
+    <div class="k">Spot it</div>
+    <div class="v">
+      <p><b>Titrations that start from a label</b> (lecture PS1). The label gives mass percent and density, not molarity:</p>
+      <ol class="tight">
+        <li>mL of solution × density = g of solution.</li>
+        <li>× mass fraction (5.00% = 0.0500) = g of solute → ÷ molar mass = mol.</li>
+        <li>÷ volume after dilution = starting concentration in the flask.</li>
+        <li>Then work the regions. Check whether the added volume is a landmark: half of V<sub>eq</sub> gives pH = pK<sub>a</sub> directly.</li>
+      </ol>
+      <p><b>Equivalence pH depends on the acid, not the amount</b> (lecture comparative 5): strong acid + NaOH → 7.00; weak acid + NaOH → above 7. The equivalence <i>volume</i> depends only on moles.</p>
+      <p class="seeit"><span>Practice</span><a href="#p-LS1">Lecture PS1</a><a href="#drill">Drill: vinegar label titration</a></p>
+    </div>
     <div class="k">Picture it</div>
     <div class="v pic">
 <p class="pic-lead">Picture NaOH dripping into acetic acid with a few drops of phenolphthalein.</p>
@@ -1084,6 +1128,16 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
       <details class="worked"><summary>Selective precipitation: 0.010 M Cl<sup>−</sup> and 0.010 M CrO<sub>4</sub><sup>2−</sup>, add Ag<sup>+</sup> slowly</summary><div>
         <p>AgCl begins when [Ag<sup>+</sup>] = 1.8 × 10<sup>−10</sup>/0.010 = 1.8 × 10<sup>−8</sup> M. Ag<sub>2</sub>CrO<sub>4</sub> (K<sub>sp</sub> 1.1 × 10<sup>−12</sup>) begins when [Ag<sup>+</sup>] = √(1.1 × 10<sup>−12</sup>/0.010) = 1.0 × 10<sup>−5</sup> M. AgCl precipitates first. The red Ag<sub>2</sub>CrO<sub>4</sub> appears only after nearly all Cl<sup>−</sup> is gone, which is how the Mohr method detects the end point of a chloride titration.</p>
       </div></details>
+    </div>
+    <div class="k">Spot it</div>
+    <div class="v">
+      <p><b>Ranking solubility from K<sub>sp</sub> or pK<sub>sp</sub></b> (lecture slide 12):</p>
+      <ul class="tight">
+        <li><b>pK<sub>sp</sub> = −log K<sub>sp</sub>.</b> Smaller pK<sub>sp</sub> → larger K<sub>sp</sub>.</li>
+        <li><b>Same formula type</b> (all MX, or all MX<sub>2</sub>): rank directly. Larger K<sub>sp</sub> (smaller pK<sub>sp</sub>) = more soluble. MgCO<sub>3</sub> (7.46) &gt; BaCO<sub>3</sub> (8.30) &gt; SrCO<sub>3</sub> (9.03) &gt; FeCO<sub>3</sub> (10.68).</li>
+        <li><b>Different formula types:</b> convert each to s first (s<sup>2</sup>, 4s<sup>3</sup>, …). The smaller K<sub>sp</sub> can belong to the more soluble salt (AgCl vs Ag<sub>2</sub>CrO<sub>4</sub>).</li>
+        <li><b>"Most soluble in acid"</b> (slides 13, 15): pick the salt whose anion is the conjugate base of a <i>weak</i> acid (F<sup>−</sup>, CO<sub>3</sub><sup>2−</sup>, OH<sup>−</sup>, S<sup>2−</sup>, PO<sub>4</sub><sup>3−</sup>). Acid converts that anion to its weak acid (or CO<sub>2</sub> gas), removing it. Halides other than F<sup>−</sup> are not affected.</li>
+      </ul>
     </div>
     <div class="k">Picture it</div>
     <div class="v pic">
@@ -1271,6 +1325,12 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
         <p>Q = (6.1 × 10<sup>−10</sup>)(0.010) = 6.1 × 10<sup>−12</sup> &lt; K<sub>sp</sub>(AgCl) = 1.8 × 10<sup>−10</sup>. <b>No precipitate.</b> Without ammonia, Q would be 1.0 × 10<sup>−4</sup> and AgCl would precipitate immediately.</p>
       </div></details>
       <p class="seeit"><span>See it</span><a href="#v-ci">Common-ion effect</a><a href="#p-PS9">Problem set #9</a></p>
+    </div>
+    <div class="k">Spot it</div>
+    <div class="v">
+      <p><b>p-notation for metal ions</b> (lecture comparative 4): pM = −log[M]<sub>free</sub>, just like pH. Adding a ligand that forms a stable complex lowers the <i>free</i> metal-ion concentration, so <b>pM goes up</b>. The total dissolved metal can go up at the same time (more solid dissolves), which is why you must read whether a question asks for free or total metal.</p>
+      <p><b>Ligand-limited dissolving</b> (lecture PS2): when K = K<sub>sp</sub>K<sub>f</sub> ≫ 1, nearly all the ligand is used. For a 2-ligand complex, s approaches [L]<sub>0</sub>/2. CuCl in 0.100 M NH<sub>3</sub>: K = 1.07 × 10<sup>4</sup>, s = 0.0498 M (just under 0.050).</p>
+      <p class="seeit"><span>Practice</span><a href="#p-LS2">Lecture PS2</a></p>
     </div>
     <div class="k">Picture it</div>
     <div class="v pic">
@@ -2183,6 +2243,7 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
   <div class="row">
     <div class="seg" role="group" aria-label="Which problems">
       <button type="button" data-pf="all" aria-pressed="true">All</button>
+      <button type="button" data-pf="ls" aria-pressed="false">Lecture slides</button>
       <button type="button" data-pf="ps" aria-pressed="false">Problem set</button>
       <button type="button" data-pf="pq" aria-pressed="false">Past quiz</button>
       <button type="button" data-pf="tw" aria-pressed="false">Twins</button>
@@ -2196,9 +2257,9 @@ footer.site{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20p
 <!-- ============ QUIZ ============ -->
 <section class="view flow-lg" id="view-quiz" aria-labelledby="h-quiz" hidden>
   <div class="flow">
-    <span class="eyebrow">Quiz · 219 items</span>
+    <span class="eyebrow">Quiz · 247 items</span>
     <h1 id="h-quiz">Test yourself</h1>
-    <p class="lede">Conceptual multiple choice, problem-solving multiple choice, identification (type the term), and 59 comparative-analysis items in the Column I vs Column II format, including problem-set-style items on buffers, salts, titration analysis and solubility. Every explanation says what the answer is and why it's right. Keep a calculator and scratch paper nearby for the solving items.</p>
+    <p class="lede">Conceptual multiple choice, problem-solving multiple choice, identification (type the term), and 69 comparative-analysis items in the Column I vs Column II format, including problem-set-style items on buffers, salts, titration analysis and solubility. Every explanation says what the answer is and why it's right. Keep a calculator and scratch paper nearby for the solving items.</p>
   </div>
   <div class="qtop">
     <div class="row">
@@ -2510,12 +2571,70 @@ S("qual","Saturated H<sub>2</sub>S is 0.10 M; K<sub>a1</sub>K<sub>a2</sub> = 9.5
 C("qual","A mixture gives a white precipitate with 6 M HCl. Which ions could be responsible?",["Ag<sup>+</sup>, Pb<sup>2+</sup>, Hg<sub>2</sub><sup>2+</sup>","Cu<sup>2+</sup>, Cd<sup>2+</sup>, Bi<sup>3+</sup>","Ca<sup>2+</sup>, Ba<sup>2+</sup>, Mg<sup>2+</sup>","Na<sup>+</sup>, K<sup>+</sup>, NH<sub>4</sub><sup>+</sup>"],0,"<b>Group 1: insoluble chlorides.</b> AgCl, PbCl<sub>2</sub> and Hg<sub>2</sub>Cl<sub>2</sub> are the common chlorides that don't dissolve. Nearly every other chloride is soluble."),
 C("qual","Why are Na<sup>+</sup> and K<sup>+</sup> left until the last group and identified by flame tests?",["They form almost no insoluble salts with the group reagents, so they never precipitate","They precipitate in group 1 with chloride","They are removed by H<sub>2</sub>S in acid","They react with phosphate in group 4"],0,"<b>Large, singly charged, strongly hydrated ions</b> attract anions weakly, so their chlorides, sulfides, hydroxides, carbonates and phosphates are all soluble. Flame color (Na yellow, K violet) is the practical test."),
 C("qual","Why must group 1 (HCl) come before group 2 (H<sub>2</sub>S)?",["H<sub>2</sub>S would also precipitate Ag<sup>+</sup> and Pb<sup>2+</sup> as sulfides, mixing them into group 2","HCl destroys H<sub>2</sub>S","Group 2 ions dissolve in HCl","It doesn't matter; the order can be reversed"],0,"<b>Each reagent precipitates more than its own group if earlier ions are still present.</b> Removing the chlorides first keeps Ag<sup>+</sup> and most Pb<sup>2+</sup> out of the sulfide precipitate."),
-X("qual","0.010 M Cu<sup>2+</sup> and 0.010 M Zn<sup>2+</sup> in a solution saturated with H<sub>2</sub>S. K<sub>sp</sub>: CuS ≈ 6 × 10<sup>−37</sup>, ZnS ≈ 2 × 10<sup>−25</sup>.","Minimum pH at which ZnS precipitates","Minimum pH at which CuS precipitates",0,"<b>A.</b> [S<sup>2−</sup>] = 9.5 × 10<sup>−28</sup>/[H<sup>+</sup>]<sup>2</sup>. ZnS needs [S<sup>2−</sup>] ≥ 2 × 10<sup>−23</sup> M, reached only above pH ≈ 2.2. CuS needs only 6 × 10<sup>−35</sup> M, which is exceeded even in strong acid. Group 2 runs at 0.3 M HCl (pH ≈ 0.5) to stay below the ZnS threshold.")
+X("qual","0.010 M Cu<sup>2+</sup> and 0.010 M Zn<sup>2+</sup> in a solution saturated with H<sub>2</sub>S. K<sub>sp</sub>: CuS ≈ 6 × 10<sup>−37</sup>, ZnS ≈ 2 × 10<sup>−25</sup>.","Minimum pH at which ZnS precipitates","Minimum pH at which CuS precipitates",0,"<b>A.</b> [S<sup>2−</sup>] = 9.5 × 10<sup>−28</sup>/[H<sup>+</sup>]<sup>2</sup>. ZnS needs [S<sup>2−</sup>] ≥ 2 × 10<sup>−23</sup> M, reached only above pH ≈ 2.2. CuS needs only 6 × 10<sup>−35</sup> M, which is exceeded even in strong acid. Group 2 runs at 0.3 M HCl (pH ≈ 0.5) to stay below the ZnS threshold."),
+// --- Lecture slide items (6–15, comparatives 1–5) ---
+C("def","<span class=\"lsrc\">Lecture slide 6</span> Which statement is consistent with the Brønsted–Lowry definition of acids?",["An acid is a substance that produces hydronium ions in solution.","An acid is a substance that donates an electron pair.","An acid is a substance that accepts an electron pair.","An acid is a substance that donates a proton."],3,"<b>D.</b> Brønsted–Lowry acids are proton donors. A is Arrhenius (H<sub>3</sub>O<sup>+</sup> in water). C is a Lewis acid (electron-pair acceptor). B describes a Lewis <i>base</i>."),
+S("buffer","<span class=\"lsrc\">Lecture slide 7</span> Which mixture forms a buffer?",["20.0 mL of 0.10 M HCl + 10.0 mL of 0.10 M HCN","20.0 mL of 0.10 M HCl + 10.0 mL of 0.10 M NaOH","20.0 mL of 0.10 M HCN + 10.0 mL of 0.10 M NaOH","20.0 mL of 0.10 M NaOH + 10.0 mL of 0.10 M HCN"],2,"<b>C.</b> 2.0 mmol HCN + 1.0 mmol OH<sup>−</sup> → 1.0 mmol HCN left + 1.0 mmol CN<sup>−</sup> formed: a weak acid and its conjugate base in equal amounts (pH = pK<sub>a</sub>). A: strong acid + weak acid, no conjugate base. B: strong acid + strong base, excess HCl. D: NaOH in excess; all HCN converted to CN<sup>−</sup> with leftover OH<sup>−</sup>."),
+C("def","<span class=\"lsrc\">Lecture slide 8</span> Which species can serve as a Brønsted–Lowry base?",["Ba<sup>2+</sup>","HCN","NH<sub>4</sub><sup>+</sup>","CH<sub>3</sub>OH"],3,"<b>D.</b> A Brønsted base needs a lone pair to accept a proton. The O in CH<sub>3</sub>OH has two lone pairs, so like water it can accept H<sup>+</sup> (→ CH<sub>3</sub>OH<sub>2</sub><sup>+</sup>). Ba<sup>2+</sup> has no lone pairs to offer; NH<sub>4</sub><sup>+</sup> has used its lone pair already and can only donate H<sup>+</sup>; HCN acts as an acid in water."),
+C("def","<span class=\"lsrc\">Lecture slide 9</span> Which species CANNOT act both as an acid and a base?",["H<sub>2</sub>PO<sub>4</sub><sup>−</sup>","HPO<sub>4</sub><sup>2−</sup>","PO<sub>4</sub><sup>3−</sup>","Zn(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>2</sub>"],2,"<b>C.</b> PO<sub>4</sub><sup>3−</sup> has no H left to donate, so it can only accept protons (base). H<sub>2</sub>PO<sub>4</sub><sup>−</sup> and HPO<sub>4</sub><sup>2−</sup> can lose or gain H<sup>+</sup> (amphiprotic). Zn(OH)<sub>2</sub>(H<sub>2</sub>O)<sub>2</sub> is amphoteric: its OH groups take H<sup>+</sup>, and its bound waters can release H<sup>+</sup> (or Zn<sup>2+</sup> accepts OH<sup>−</sup>, forming Zn(OH)<sub>4</sub><sup>2−</sup>). The slide says \"Lewis\", but the intended test is amphiprotic/amphoteric behavior."),
+C("def","<span class=\"lsrc\">Lecture slide 10</span> Which is a correct conjugate acid–base pair?",["H<sub>2</sub>SO<sub>4</sub> and H<sub>2</sub>SO<sub>3</sub>","HCO<sub>3</sub><sup>−</sup> and CO<sub>2</sub>","<sup>+</sup>H<sub>3</sub>NCH<sub>2</sub>CO<sub>2</sub>H and H<sub>2</sub>NCH<sub>2</sub>CO<sub>2</sub>H","H<sup>+</sup> and H<sup>−</sup>"],2,"<b>C.</b> A conjugate pair differs by exactly one H<sup>+</sup> (one H atom and one unit of charge). Glycine's protonated amine loses one H<sup>+</sup> from N. A differs by an O atom. B: HCO<sub>3</sub><sup>−</sup>'s conjugate acid is H<sub>2</sub>CO<sub>3</sub>, not CO<sub>2</sub>. D differs by two electrons, not a proton."),
+S("salts","<span class=\"lsrc\">Lecture slide 11</span> In which system is the pH less than 7?",["0.010 M NaBr","0.010 M KNO<sub>2</sub>","0.020 M NH<sub>4</sub>OH","0.020 M NH<sub>4</sub>Br"],3,"<b>D.</b> NH<sub>4</sub><sup>+</sup> is the conjugate acid of the weak base NH<sub>3</sub> and donates H<sup>+</sup> to water; Br<sup>−</sup> is a spectator. pH ≈ 5.5. NaBr: both ions from strong parents → 7.00. KNO<sub>2</sub>: NO<sub>2</sub><sup>−</sup> is a weak base → ≈ 7.7. NH<sub>4</sub>OH (aqueous NH<sub>3</sub>) is a weak base → ≈ 10.8."),
+C("ksp","<span class=\"lsrc\">Lecture slide 12</span> Which slightly soluble salt is MOST soluble in water?",["MgCO<sub>3</sub> (pK<sub>sp</sub> = 7.46)","SrCO<sub>3</sub> (pK<sub>sp</sub> = 9.03)","BaCO<sub>3</sub> (pK<sub>sp</sub> = 8.30)","FeCO<sub>3</sub> (pK<sub>sp</sub> = 10.68)"],0,"<b>A.</b> All are MCO<sub>3</sub> (1 : 1), so s = √K<sub>sp</sub> and you can compare K<sub>sp</sub> directly. Smallest pK<sub>sp</sub> = largest K<sub>sp</sub> = most soluble: MgCO<sub>3</sub>, s ≈ 1.9 × 10<sup>−4</sup> M vs FeCO<sub>3</sub> 4.6 × 10<sup>−6</sup> M. Remember pK is a minus log: smaller pK, bigger K."),
+C("fact","<span class=\"lsrc\">Lecture slide 13</span> Which silver salt is MOST soluble in acidic solution?",["AgF","AgCl","AgBr","AgI"],0,"<b>A.</b> F<sup>−</sup> is the conjugate base of a weak acid (HF), so H<sub>3</sub>O<sup>+</sup> converts F<sup>−</sup> into HF, removes it from the solubility equilibrium, and pulls more salt into solution. Cl<sup>−</sup>, Br<sup>−</sup>, I<sup>−</sup> come from strong acids and are not removed by acid. (AgF is also quite soluble in water to begin with.)"),
+C("fact","<span class=\"lsrc\">Lecture slide 15</span> Which reagent dissolves CaCO<sub>3</sub>(s) quickly (K<sub>sp</sub> = 6.0 × 10<sup>−9</sup>)?",["Aqueous HCl","Aqueous NH<sub>3</sub>","Aqueous NaCl","Water"],0,"<b>A.</b> H<sub>3</sub>O<sup>+</sup> turns CO<sub>3</sub><sup>2−</sup> into HCO<sub>3</sub><sup>−</sup> and then H<sub>2</sub>CO<sub>3</sub>, which leaves as CO<sub>2</sub> gas (fizzing). Removing the anion drives dissolution. NH<sub>3</sub> is basic (it would suppress dissolution and doesn't complex Ca<sup>2+</sup>); NaCl adds no reacting ion; water alone dissolves only ~8 × 10<sup>−5</sup> M."),
+X("strong","<span class=\"lsrc\">Lecture comparative 1</span> pH of a 0.010 M solution.","HClO<sub>3</sub>","HClO<sub>4</sub>",2,"<b>C.</b> Both are strong acids that ionize completely at 0.010 M, so [H<sub>3</sub>O<sup>+</sup>] = 0.010 M and pH = 2.00 in both. HClO<sub>4</sub> is intrinsically stronger, but water levels both to H<sub>3</sub>O<sup>+</sup>. (Even if you treat HClO<sub>3</sub> as having K<sub>a</sub> ≈ 10, it is &gt; 99.9% ionized at this concentration.)"),
+X("weak","<span class=\"lsrc\">Lecture comparative 2</span> K<sub>a</sub> of HX &gt; K<sub>a</sub> of HY.","pOH of 0.010 M HX","pOH of 0.010 M HY",0,"<b>A.</b> Same concentration, larger K<sub>a</sub> → more H<sub>3</sub>O<sup>+</sup> → lower pH → <i>higher</i> pOH (pH + pOH = 14). The trap is the direction: the stronger acid has the larger pOH."),
+X("buffer","<span class=\"lsrc\">Lecture comparative 3</span> Solution I: 0.010 M NH<sub>4</sub>Cl. Solution II: 0.010 M NH<sub>3</sub> + 0.010 M NH<sub>4</sub>Cl.","pH of Solution I","pH of Solution II",1,"<b>B.</b> I is a weak acid (NH<sub>4</sub><sup>+</sup>) alone: pH ≈ 5.6. II is a 1 : 1 buffer: pH = pK<sub>a</sub>(NH<sub>4</sub><sup>+</sup>) = 9.26. Adding NH<sub>3</sub> makes the solution basic."),
+X("fact","<span class=\"lsrc\">Lecture comparative 4</span> Solution I: 0.010 M CuBr(aq). Solution II: 0.010 M CuBr(aq) + 0.010 M NH<sub>3</sub>(aq). K<sub>f</sub> for the copper–ammonia complex is very large.","pCu of Solution I","pCu of Solution II",1,"<b>B.</b> pCu = −log[Cu]<sub>free</sub>. NH<sub>3</sub> binds copper ions into a complex, so free [Cu] in II is smaller, and a smaller concentration means a larger p-value. (The slide pairs Cu<sup>+</sup> from CuBr with Cu(NH<sub>3</sub>)<sub>4</sub><sup>2+</sup>; the reasoning is the same either way.)"),
+X("titr","<span class=\"lsrc\">Lecture comparative 5</span> Titration of 1.50 mol of acid with 0.10 M NaOH.","pH at equivalence when the acid is HNO<sub>3</sub>","pH at equivalence when the acid is HNO<sub>2</sub>",1,"<b>B.</b> HNO<sub>3</sub> + NaOH gives NaNO<sub>3</sub>, a neutral salt: pH 7.00. HNO<sub>2</sub> gives NO<sub>2</sub><sup>−</sup>, a weak base: pH &gt; 7. The equivalence <i>volumes</i> are equal (same moles); the pH values are not."),
+// --- concept twins ---
+C("def","Which pair of definitions is matched correctly?",["Lewis acid: electron-pair acceptor; Brønsted base: proton acceptor","Lewis acid: proton donor; Brønsted base: electron-pair acceptor","Arrhenius base: electron-pair donor; Lewis base: OH<sup>−</sup> producer","Brønsted acid: electron-pair acceptor; Lewis base: proton donor"],0,"<b>Arrhenius</b> watches ions made in water (H<sub>3</sub>O<sup>+</sup>, OH<sup>−</sup>). <b>Brønsted–Lowry</b> watches the proton (donor = acid, acceptor = base). <b>Lewis</b> watches the electron pair (acceptor = acid, donor = base)."),
+C("def","Which species is amphiprotic (can act as a Brønsted acid and base)?",["HSO<sub>4</sub><sup>−</sup>","SO<sub>4</sub><sup>2−</sup>","NH<sub>4</sub><sup>+</sup>","Na<sup>+</sup>"],0,"<b>HSO<sub>4</sub><sup>−</sup></b> still has an H to give (→ SO<sub>4</sub><sup>2−</sup>) and a negative O with lone pairs to accept one (→ H<sub>2</sub>SO<sub>4</sub>). Rule of thumb: an anion that still carries an acidic H (HCO<sub>3</sub><sup>−</sup>, H<sub>2</sub>PO<sub>4</sub><sup>−</sup>, HPO<sub>4</sub><sup>2−</sup>, HS<sup>−</sup>) is amphiprotic."),
+C("def","What is the conjugate base of HPO<sub>4</sub><sup>2−</sup>?",["PO<sub>4</sub><sup>3−</sup>","H<sub>2</sub>PO<sub>4</sub><sup>−</sup>","H<sub>3</sub>PO<sub>4</sub>","HPO<sub>3</sub><sup>2−</sup>"],0,"<b>Remove one H<sup>+</sup>:</b> one fewer H and one more negative charge → PO<sub>4</sub><sup>3−</sup>. H<sub>2</sub>PO<sub>4</sub><sup>−</sup> is its conjugate <i>acid</i>."),
+C("def","Which is the conjugate acid of HCO<sub>3</sub><sup>−</sup>?",["H<sub>2</sub>CO<sub>3</sub>","CO<sub>2</sub>","CO<sub>3</sub><sup>2−</sup>","H<sub>3</sub>O<sup>+</sup>"],0,"<b>Add one H<sup>+</sup>:</b> H<sub>2</sub>CO<sub>3</sub>. CO<sub>2</sub> forms when H<sub>2</sub>CO<sub>3</sub> decomposes (H<sub>2</sub>CO<sub>3</sub> → CO<sub>2</sub> + H<sub>2</sub>O), but it differs from HCO<sub>3</sub><sup>−</sup> by more than a proton."),
+S("buffer","Which mixture is a buffer?",["25.0 mL of 0.10 M NH<sub>3</sub> + 10.0 mL of 0.10 M HCl","25.0 mL of 0.10 M NH<sub>3</sub> + 25.0 mL of 0.10 M HCl","25.0 mL of 0.10 M NaOH + 25.0 mL of 0.10 M HCl","25.0 mL of 0.10 M HCl + 25.0 mL of 0.10 M NaCl"],0,"<b>A.</b> 2.5 mmol NH<sub>3</sub> + 1.0 mmol H<sup>+</sup> → 1.5 mmol NH<sub>3</sub> + 1.0 mmol NH<sub>4</sub><sup>+</sup>: weak base + conjugate acid. B reaches equivalence (only NH<sub>4</sub><sup>+</sup>); C is neutral salt water; D is a strong acid with its neutral salt, which can't buffer."),
+C("buffer","A weak acid HA is mixed with a strong base. For the result to be a buffer, the moles of strong base must be:",["More than zero but less than the moles of HA","Exactly equal to the moles of HA","Greater than the moles of HA","Exactly twice the moles of HA"],0,"<b>Partial neutralization.</b> Some HA must be converted to A<sup>−</sup> and some must remain. Equal moles leaves only A<sup>−</sup>; excess base leaves OH<sup>−</sup>. Half as much base gives a 1 : 1 buffer (pH = pK<sub>a</sub>)."),
+S("salts","Which 0.10 M solution has the highest pH?",["NaCN (K<sub>a</sub> HCN 4.9 × 10<sup>−10</sup>)","NaF (K<sub>a</sub> HF 6.8 × 10<sup>−4</sup>)","CH<sub>3</sub>COONa (K<sub>a</sub> 1.8 × 10<sup>−5</sup>)","NaNO<sub>3</sub>"],0,"<b>NaCN.</b> The weakest parent acid gives the strongest conjugate base (K<sub>b</sub> = K<sub>w</sub>/K<sub>a</sub> = 2.0 × 10<sup>−5</sup>), pH ≈ 11.1. NaNO<sub>3</sub> is neutral."),
+C("ksp","Ag<sub>2</sub>CrO<sub>4</sub> has pK<sub>sp</sub> = 11.96 and AgCl has pK<sub>sp</sub> = 9.74. Which is more soluble in water (mol/L)?",["Ag<sub>2</sub>CrO<sub>4</sub>","AgCl","Equal","Can't tell without K<sub>f</sub>"],0,"<b>Ag<sub>2</sub>CrO<sub>4</sub>.</b> Different formula types, so compute: AgCl s = √(1.8 × 10<sup>−10</sup>) = 1.3 × 10<sup>−5</sup> M; Ag<sub>2</sub>CrO<sub>4</sub> s = (1.1 × 10<sup>−12</sup>/4)<sup>1/3</sup> = 6.5 × 10<sup>−5</sup> M. Comparing pK<sub>sp</sub> only works for the same formula type."),
+X("ksp","Two salts of the same formula type, MCO<sub>3</sub>.","Molar solubility of a salt with pK<sub>sp</sub> = 8.30","Molar solubility of a salt with pK<sub>sp</sub> = 10.68",0,"<b>A.</b> Same formula type → the smaller pK<sub>sp</sub> (larger K<sub>sp</sub>) is more soluble: 7.1 × 10<sup>−5</sup> M vs 4.6 × 10<sup>−6</sup> M."),
+C("fact","Which reagent would dissolve Mg(OH)<sub>2</sub>(s) fastest?",["Dilute HCl","NaOH solution","MgCl<sub>2</sub> solution","Ethanol"],0,"<b>HCl.</b> H<sub>3</sub>O<sup>+</sup> neutralizes the OH<sup>−</sup> released (→ H<sub>2</sub>O), pulling the dissolution forward. NaOH and MgCl<sub>2</sub> add common ions and suppress dissolution."),
+X("fact","AgBr in two solutions (K<sub>f</sub> of Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> is large).","pAg in saturated AgBr in water","pAg in saturated AgBr in 1.0 M NH<sub>3</sub>",1,"<b>B.</b> In NH<sub>3</sub> most dissolved silver is complexed, and free [Ag<sup>+</sup>] = K<sub>sp</sub>/[Br<sup>−</sup>] is lower because [Br<sup>−</sup>] is higher (more AgBr dissolved). Lower free [Ag<sup>+</sup>] → higher pAg."),
+X("titr","Equal moles of HCl and CH<sub>3</sub>COOH, each titrated with the same NaOH solution.","Volume of NaOH to reach equivalence for HCl","Volume of NaOH to reach equivalence for CH<sub>3</sub>COOH",2,"<b>C.</b> Equivalence volume depends only on moles of acid (both monoprotic). Strength changes the pH at equivalence, not the volume."),
+X("titr","25.0 mL of 0.10 M CH<sub>3</sub>COOH is titrated with 0.10 M NaOH.","pH after 12.5 mL NaOH","pK<sub>a</sub> of acetic acid",2,"<b>C.</b> 12.5 mL is half of V<sub>eq</sub> (25.0 mL): [HA] = [A<sup>−</sup>], so pH = pK<sub>a</sub>. Lecture PS1(b) used the same trick with 21.23 mL."),
+X("weak","Two 0.10 M weak bases: B<sub>1</sub> with K<sub>b</sub> = 1.8 × 10<sup>−5</sup> and B<sub>2</sub> with K<sub>b</sub> = 4.0 × 10<sup>−10</sup>.","pOH of B<sub>1</sub> solution","pOH of B<sub>2</sub> solution",1,"<b>B.</b> The stronger base (B<sub>1</sub>) makes more OH<sup>−</sup> → lower pOH (and higher pH). Watch which p-scale is asked.")
 ];
 
 // ---------- PAST QUIZ + HANDOUT PROBLEMS ----------
 // g: ps problem set (multi-part: parts[], plan[], mind[], kind), pq past quiz, tw twin, hx handout worked example, ty handout "Try these!"/unsolved exercise. ans numeric (null = reveal) ; txt = accepted text answers.
 const PAST=[
+{g:"ls",id:"LS1",src:"Lecture slides · PS1",topic:"Titrations",kind:"Weak acid–strong base titration starting from mass percent → three regions",
+ q:"A 5.00 mL vinegar sample containing 5.00% acetic acid (HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>; density 1.02 g/mL) is diluted to 25.00 mL with water and titrated with 0.10 M NaOH. K<sub>a</sub> = 1.85 × 10<sup>−5</sup>. Find the pH (a) before titration, (b) after adding 21.23 mL of titrant, (c) at the equivalence point.",
+ parts:[{lab:"(a) pH before titration",ans:2.75,abs:.02},{lab:"(b) pH after 21.23 mL",ans:4.73,abs:.02},{lab:"(c) pH at equivalence",ans:8.77,abs:.02}],
+ plan:["Turn the label data into moles: volume × density = mass of vinegar; × 5.00% = mass of acid; ÷ 60.05 g/mol = mol acid.","Concentration after dilution: mol ÷ 0.02500 L. Dilution changes concentration, not moles.","(a) Weak acid alone → √(K<sub>a</sub>C).","(b) mol NaOH vs mol acid → which region? Here it's almost exactly half → buffer, H–H.","(c) V<sub>eq</sub> from moles; all acid is now acetate in the total volume → weak base with K<sub>b</sub> = K<sub>w</sub>/K<sub>a</sub>."],
+ steps:["Mass of vinegar = 5.00 mL × 1.02 g/mL = 5.10 g; acetic acid = 0.0500 × 5.10 g = 0.255 g; mol = 0.255/60.05 = 4.25 × 10<sup>−3</sup> mol (4.25 mmol).","After dilution: C = 4.25 × 10<sup>−3</sup> mol / 0.02500 L = 0.170 M.","<b>(a)</b> x = √(1.85 × 10<sup>−5</sup> × 0.170) = 1.77 × 10<sup>−3</sup> M (1.0% ✓) → <b>pH = 2.75</b>.","<b>(b)</b> mol OH<sup>−</sup> = 0.10 M × 0.02123 L = 2.123 mmol. After reaction: HA = 4.246 − 2.123 = 2.123 mmol, A<sup>−</sup> = 2.123 mmol. Equal amounts: this is the half-equivalence point. pH = pK<sub>a</sub> + log(2.123/2.123) = <b>4.73</b>.","<b>(c)</b> V<sub>eq</sub> = 4.246 mmol / 0.10 M = 42.46 mL. Total volume = 25.00 + 42.46 = 67.46 mL; [CH<sub>3</sub>COO<sup>−</sup>] = 4.246/67.46 = 0.0629 M.","K<sub>b</sub> = 1.0 × 10<sup>−14</sup>/1.85 × 10<sup>−5</sup> = 5.41 × 10<sup>−10</sup>; [OH<sup>−</sup>] = √(5.41 × 10<sup>−10</sup> × 0.0629) = 5.83 × 10<sup>−6</sup> M; pOH = 5.23 → <b>pH = 8.77</b>."],
+ mind:["21.23 mL was chosen so that exactly half the acid is neutralized. Spotting that saves the H–H arithmetic: pH = pK<sub>a</sub>.","At equivalence, use the <i>total</i> volume (sample + titrant). Using 25.00 mL gives pH 8.98, a common wrong answer.","Mass percent means grams of solute per 100 g of solution, so you need density to get from mL of solution to grams."],
+ why:"A titration curve is a series of different problems: weak acid alone, then a buffer (both HA and A<sup>−</sup>), then the conjugate base alone. Neutralization always goes to completion first; then whatever is left sets the pH."},
+{g:"ls",id:"LS2",src:"Lecture slides · PS2",topic:"Solubility & Ksp",kind:"Precipitate + ligand, large K → ligand-limited",
+ q:"What is the molar solubility of CuCl in 0.100 M NH<sub>3</sub>? K<sub>sp</sub>(CuCl) = 1.70 × 10<sup>−7</sup>; K<sub>f</sub>(Cu(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>) = 6.30 × 10<sup>10</sup>.",
+ parts:[{lab:"molar solubility",ans:0.0498,unit:"M",tol:.02}],
+ plan:["Add the equilibria: CuCl(s) ⇌ Cu<sup>+</sup> + Cl<sup>−</sup> and Cu<sup>+</sup> + 2NH<sub>3</sub> ⇌ Cu(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>.","K = K<sub>sp</sub> × K<sub>f</sub>. If K ≫ 1, the reaction nearly runs out of NH<sub>3</sub>: s can't exceed 0.100/2.","ICE with s; take the square root of both sides."],
+ steps:["CuCl(s) + 2NH<sub>3</sub> ⇌ Cu(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> + Cl<sup>−</sup>; K = (1.70 × 10<sup>−7</sup>)(6.30 × 10<sup>10</sup>) = 1.07 × 10<sup>4</sup>.","K = s<sup>2</sup>/(0.100 − 2s)<sup>2</sup> → √K = 103.5 = s/(0.100 − 2s).","s = 103.5(0.100 − 2s) → s(1 + 207) = 10.35 → <b>s = 0.0498 M</b>.","Check: NH<sub>3</sub> left = 0.100 − 2(0.0498) = 4.8 × 10<sup>−4</sup> M. Almost all the ammonia is used, as expected for K ≫ 1. In pure water s would be √(1.70 × 10<sup>−7</sup>) = 4.1 × 10<sup>−4</sup> M, so NH<sub>3</sub> raises solubility about 120-fold."],
+ mind:["Don't assume 0.100 − 2s ≈ 0.100 here: with K this large, 2s is nearly all of it.","Quick estimate when K ≫ 1: s ≈ [NH<sub>3</sub>]<sub>0</sub>/2 = 0.050 M. Your exact answer should be just under that."],
+ why:"Cu<sup>+</sup> bonds two NH<sub>3</sub> very strongly (K<sub>f</sub> 6.3 × 10<sup>10</sup>), so nearly every Cu<sup>+</sup> that leaves the crystal is captured and can't return to the solid. The limit becomes how much NH<sub>3</sub> is available."},
+{g:"tw",id:"TLS1a",src:"Twin of lecture PS1",topic:"Titrations",kind:"Weak acid–strong base titration from mass percent (four regions)",
+ q:"10.00 mL of vinegar (4.50% acetic acid by mass, density 1.01 g/mL) is diluted to 50.00 mL and titrated with 0.150 M NaOH (K<sub>a</sub> = 1.8 × 10<sup>−5</sup>). Find the pH (a) before titration, (b) after 10.00 mL of NaOH, (c) at equivalence, (d) 5.00 mL past equivalence.",
+ parts:[{lab:"(a) start",ans:2.78,abs:.02},{lab:"(b) after 10.00 mL",ans:4.14,abs:.02},{lab:"(c) equivalence",ans:8.81,abs:.02},{lab:"(d) 5.00 mL past",ans:11.85,abs:.02}],
+ plan:["Mass → mol: 10.00 × 1.01 × 0.0450 = 0.4545 g → ÷ 60.05.","Then four regions: weak acid, buffer, conjugate base, excess OH<sup>−</sup>."],
+ steps:["mol acid = 0.4545/60.05 = 7.569 mmol; C = 7.569/50.00 = 0.1514 M.","(a) x = √(1.8 × 10<sup>−5</sup> × 0.1514) = 1.65 × 10<sup>−3</sup> → <b>2.78</b>.","(b) OH<sup>−</sup> = 1.500 mmol → HA 6.069, A<sup>−</sup> 1.500 → pH = 4.74 + log(1.500/6.069) = <b>4.14</b>.","(c) V<sub>eq</sub> = 7.569/0.150 = 50.46 mL; [A<sup>−</sup>] = 7.569/100.46 = 0.0753 M; [OH<sup>−</sup>] = √(5.56 × 10<sup>−10</sup> × 0.0753) = 6.47 × 10<sup>−6</sup> → <b>8.81</b>.","(d) excess OH<sup>−</sup> = 0.150 × 5.00 = 0.750 mmol in 105.46 mL = 7.11 × 10<sup>−3</sup> M → pOH 2.15 → <b>11.85</b>."],
+ mind:["Past equivalence, ignore acetate's tiny OH<sup>−</sup>; the excess strong base dominates."],
+ why:"Same regions as PS1, plus the excess-base region."},
+{g:"tw",id:"TLS2a",src:"Twin of lecture PS2",topic:"Solubility & Ksp",kind:"Precipitate + ligand",
+ q:"Using the same constants (K<sub>sp</sub> CuCl = 1.70 × 10<sup>−7</sup>, K<sub>f</sub> = 6.30 × 10<sup>10</sup>), find the molar solubility of CuCl in 0.500 M NH<sub>3</sub>. Then find the molar solubility of AgCl (K<sub>sp</sub> 1.8 × 10<sup>−10</sup>, K<sub>f</sub> 1.7 × 10<sup>7</sup>) in 0.250 M NH<sub>3</sub>.",
+ parts:[{lab:"CuCl in 0.500 M NH<sub>3</sub>",ans:0.2488,unit:"M",tol:.02},{lab:"AgCl in 0.250 M NH<sub>3</sub>",ans:0.01245,unit:"M",tol:.03}],
+ plan:["K = K<sub>sp</sub>K<sub>f</sub>; √K = s/(L<sub>0</sub> − 2s)."],
+ steps:["CuCl: √K = 103.5 → s = 0.500 × 103.5/208 = <b>0.249 M</b> (ligand-limited, just under 0.250).","AgCl: K = 3.06 × 10<sup>−3</sup>, √K = 0.0553 → s = 0.250 × 0.0553/1.1106 = <b>0.0125 M</b>.","The difference comes from K: 10<sup>4</sup> (nearly complete) vs 10<sup>−3</sup> (partial)."],
+ mind:["Large K → s ≈ L<sub>0</sub>/2. Small K → s ≈ √K × L<sub>0</sub>."],
+ why:"The overall K decides whether the ligand is used up or only partly consumed."},
 // ---- Problem set (g:"ps") and its twins (g:"tw") — multi-part items ----
 {g:"ps",id:"PS1",src:"Problem set · #1",topic:"Weak acids",kind:"Weak acid alone → ICE, √(K<sub>a</sub>C), 5% check",
  q:"The ionization constant of lactic acid, HC<sub>3</sub>H<sub>5</sub>O<sub>3</sub>, is 1.5 × 10<sup>−4</sup>. (a) What is [H<sub>3</sub>O<sup>+</sup>] in a 0.16 M solution of lactic acid? (b) What are the pH and pOH? (c) What is the percent ionization?",
@@ -3018,7 +3137,7 @@ const mn=s=>String(s).replace("-","−");
 function parseNum(s){s=String(s).replace(/[−–]/g,"-").replace(/,/g,"").replace(/\s*[x×]\s*10\s*\^?\s*/i,"e").match(/[-+]?\d*\.?\d+(e[-+]?\d+)?/i);return s?parseFloat(s[0]):NaN}
 function fmtAns(x){return Math.abs(x)>=1e4||Math.abs(x)<1e-3&&x!==0?sci(Math.abs(x),2).replace(/^/,x<0?"−":""):mn(x)}
 function renderPast(){const list=$("pastList");const items=PAST.filter(p=>pf==="all"||p.g===pf);$("pastCount").textContent=items.length+" problems";
- const lab={ps:["Problem set","ps"],pq:["Past quiz","pq"],tw:["Twin","tw"],hx:["Handout example","hx"],ty:["Try these / exercise","ty"]};
+ const lab={ls:["Lecture slides","ls"],ps:["Problem set","ps"],pq:["Past quiz","pq"],tw:["Twin","tw"],hx:["Handout example","hx"],ty:["Try these / exercise","ty"]};
  list.innerHTML=items.map(p=>{let form;
   if(p.parts){form='<form class="parts" data-id="'+p.id+'" autocomplete="off">'+p.parts.map((q,j)=>'<div class="prow"><label for="in-'+p.id+'-'+j+'">'+q.lab+'</label><input type="text" '+(q.txt?'':'inputmode="decimal" ')+'id="in-'+p.id+'-'+j+'" placeholder="'+(q.txt?'type answer':'e.g. 1.5e-4')+'"><span class="hint">'+(q.unit||"")+'</span><span class="pfb" id="fb-'+p.id+'-'+j+'"></span></div>').join("")+'<div class="ansrow"><button class="btn primary" type="submit">Check all</button><button class="btn" type="button" data-reveal="'+p.id+'">Show solution</button></div></form>'}
   else{const input=p.ans!=null?'<input type="text" inputmode="decimal" id="in-'+p.id+'" placeholder="answer (e.g. 1.5e-4)"><span class="hint">'+(p.unit||"")+'</span>':p.txt?'<input type="text" id="in-'+p.id+'" placeholder="type your answer">':'';
@@ -3618,6 +3737,17 @@ T.push({id:"bc",name:"Buffer effectiveness: how much strong acid or base before 
  const st=["Starting moles: "+d.a+" = "+cA+" × "+V+" = "+nA.toFixed(4)+" mol; "+d.b+" = "+nB.toFixed(4)+" mol. Starting pH = "+d.pK.toFixed(2)+" + log("+nB.toFixed(4)+"/"+nA.toFixed(4)+") = "+f(pH0,2)+".","Target pH = "+f(tgt,2)+" → required ratio base/acid = 10<sup>("+f(tgt,2)+" − "+d.pK.toFixed(2)+")</sup> = "+kf(R)+".",(addAcid?"Added H<sub>3</sub>O<sup>+</sup> converts base → acid: ":"Added OH<sup>−</sup> converts acid → base: ")+eq+".","Solve: x = <b>"+kf(x)+" mol</b> "+(addAcid?"HCl":"NaOH")+"."];
  return{q:"A buffer is made of "+V+" L containing "+cA+" M "+d.a+" and "+cB+" M "+d.b+" (pK<sub>a</sub> = "+d.pK.toFixed(2)+"). How many moles of "+(addAcid?"HCl":"NaOH")+" can be added before the pH "+(addAcid?"falls":"rises")+" by "+dp.toFixed(2)+" unit"+(dp===1?"":"s")+"? (Assume no volume change.)",ans:x,unit:"mol",tol:.02,steps:st,
   why:"Capacity is a stoichiometry question with a Henderson–Hasselbalch target: find the ratio that gives the new pH, then the moles of strong acid or base that convert enough of one partner into the other. More of both components → more moles needed → higher capacity; a lopsided ratio leaves one partner small, so capacity in that direction is low."}}});
+// 25 titration starting from a vinegar label (mass %, density)
+T.push({id:"wp",name:"Vinegar label → titration pH (mass %, density, dilution)",like:"Lecture PS1",topic:"Titrations",gen(){
+ const Vs=pick([2.00,5.00,10.00]),pc=rnd(4.00,6.00,0.05),dn=pick([1.00,1.01,1.02]),Vf=pick([25.00,50.00,100.00]),Cb=pick([0.100,0.150,0.200]),Ka=pick([1.8e-5,1.85e-5]),pKa=-lg(Ka);
+ const g=Vs*dn,ga=g*pc/100,n=ga/60.05*1000,C=n/Vf,Veq=n/Cb;const where=pick(["v0","buf","half","eq","ex"]);
+ const st=["Mass of vinegar = "+Vs.toFixed(2)+" mL × "+dn.toFixed(2)+" g/mL = "+g.toFixed(3)+" g; acetic acid = "+(pc/100).toFixed(4)+" × "+g.toFixed(3)+" = "+ga.toFixed(4)+" g → "+n.toFixed(4)+" mmol (÷ 60.05).","After dilution: C = "+n.toFixed(4)+" mmol / "+Vf.toFixed(2)+" mL = "+C.toFixed(4)+" M. V<sub>eq</sub> = "+n.toFixed(4)+"/"+Cb+" = "+Veq.toFixed(2)+" mL."];
+ let V,v;
+ if(where==="v0"){V=0;const x=quadX(Ka,C);v=P(x);st.push("Before titration: weak acid alone. x = [H<sub>3</sub>O<sup>+</sup>] = "+kf(x)+" M ("+(x/C*100).toFixed(1)+"% ionized).","<b>pH = "+f(v,2)+"</b>.")}
+ else if(where==="buf"||where==="half"){V=where==="half"?+(Veq/2).toFixed(2):+(Veq*rnd(0.15,0.85,0.05)).toFixed(2);const nb=Cb*V,ha=n-nb;v=pKa+lg(nb/ha);st.push("mmol OH<sup>−</sup> = "+Cb+" × "+V.toFixed(2)+" = "+nb.toFixed(4)+". After reaction: HA = "+ha.toFixed(4)+" mmol, A<sup>−</sup> = "+nb.toFixed(4)+" mmol (buffer"+(where==="half"?", exactly half-neutralized":"")+").","pH = "+pKa.toFixed(2)+" + log("+nb.toFixed(4)+"/"+ha.toFixed(4)+") = <b>"+f(v,2)+"</b>.")}
+ else if(where==="eq"){V=+Veq.toFixed(2);const Vt=Vf+V,c=n/Vt,Kb=Kw/Ka,x=quadX(Kb,c);v=14-P(x);st.push("At equivalence all acid is acetate: "+n.toFixed(4)+" mmol in "+Vt.toFixed(2)+" mL (sample + titrant) = "+kf(c)+" M.","K<sub>b</sub> = K<sub>w</sub>/K<sub>a</sub> = "+kf(Kb)+"; [OH<sup>−</sup>] = "+kf(x)+" M; pOH = "+f(P(x),2)+" → <b>pH = "+f(v,2)+"</b>.")}
+ else{V=+(Veq+pick([2.00,5.00,10.00])).toFixed(2);const Vt=Vf+V,ex=Cb*V-n,c=ex/Vt;v=14-P(c);st.push("Past equivalence: excess OH<sup>−</sup> = "+(Cb*V).toFixed(4)+" − "+n.toFixed(4)+" = "+ex.toFixed(4)+" mmol in "+Vt.toFixed(2)+" mL = "+kf(c)+" M.","pOH = "+f(P(c),2)+" → <b>pH = "+f(v,2)+"</b>.")}
+ return Object.assign(ph(v),{q:"A "+Vs.toFixed(2)+" mL vinegar sample contains "+pc.toFixed(2)+"% acetic acid by mass (density "+dn.toFixed(2)+" g/mL). It is diluted to "+Vf.toFixed(2)+" mL and titrated with "+Cb+" M NaOH (K<sub>a</sub> = "+k2(Ka)+"). Find the pH "+(V===0?"before any NaOH is added.":"after "+V.toFixed(2)+" mL of NaOH has been added."),steps:st,why:"Label data → moles first (volume × density × mass fraction ÷ molar mass). Then locate the point relative to V<sub>eq</sub>: weak acid, buffer, conjugate base (use the total volume), or excess OH<sup>−</sup>."})}});
 // 20 Column I vs II
 const CQ=[
  ()=>{const [x,y]=[pick(WA),pick(WA)].sort((p,q)=>q.Ka-p.Ka);if(x===y)return CQ[1]();const sw=Math.random()<0.5;return{ctx:"Two weak acids, each 0.10 M: "+x.a+" (K<sub>a</sub> "+k2(x.Ka)+") and "+y.a+" (K<sub>a</sub> "+k2(y.Ka)+").",c1:"pH of "+(sw?y.a:x.a),c2:"pH of "+(sw?x.a:y.a),a:sw?0:1,why:"Larger K<sub>a</sub> → more H<sub>3</sub>O<sup>+</sup> → <i>lower</i> pH. Same concentration, so K<sub>a</sub> alone decides."}},
